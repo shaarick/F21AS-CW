@@ -16,4 +16,58 @@ public class Item {
 		this.quantity = quantity;
 		this.price = price;
 	}
+
+
+	public Object getItemName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public String getItemID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Object getMenuItemLine() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public void addOne() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public int getItemQuantity() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	public void substractOne() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void setItemQuantity(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public double getItemPriceTotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	public Object getCurrentOrderItemLine() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
