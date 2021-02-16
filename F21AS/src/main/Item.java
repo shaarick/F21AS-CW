@@ -18,16 +18,67 @@ public class Item {
 	}
 
 
-	public Object getItemName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 	public String getItemID() {
-		// TODO Auto-generated method stub
-		return null;
+		return itemID;
 	}
+
+
+	public String getItemName() {
+		return name;
+	}
+	
+	
+	public String getItemDescription() {
+		return description;
+	}
+
+
+	public int getItemQuantity() {
+		return quantity;
+	}
+
+
+	public double getItemPrice() {
+		return price;
+	}
+
+
+	public double getItemPriceTotal() {
+		return priceTotal;
+	}
+	
+	
+	
+	public void setItemID(String itemID) {
+		this.itemID = itemID;
+	}
+
+
+	public void setItemName(String name) {
+		this.name = name;
+	}
+	
+	
+	public void setItemDescription(String description) {
+		this.description = description;
+	}
+
+
+	public void setItemQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
+	public void setItemPrice(double price) {
+		this.price = price;
+	}
+
+
+	public void setItemPriceTotal(double priceTotal) {
+		this.priceTotal = priceTotal;
+	}
+	
+	
 
 
 	public Object getMenuItemLine() {
@@ -42,27 +93,9 @@ public class Item {
 	}
 
 
-	public int getItemQuantity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
 	public void substractOne() {
 		// TODO Auto-generated method stub
 		
-	}
-
-
-	public void setItemQuantity(int i) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public double getItemPriceTotal() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 
