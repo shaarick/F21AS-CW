@@ -15,6 +15,7 @@ public class Item {
 		this.description = description;
 		this.quantity = quantity;
 		this.price = price;
+		this.priceTotal = price*quantity;
 	}
 
 
@@ -79,28 +80,31 @@ public class Item {
 	}
 	
 	
-
-
-	public Object getMenuItemLine() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 
 	public void addOne() {
-		// TODO Auto-generated method stub
-		
+		quantity++;
+		priceTotal+=price;
 	}
 
 
 	public void substractOne() {
-		// TODO Auto-generated method stub
-		
+		quantity--;
+		priceTotal-=price;
 	}
-
-
-	public Object getCurrentOrderItemLine() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	
+	public int compareTo(Item item) {
+		return this.itemID.compareTo(item.getItemID());
+	}
+	
+	
+	public boolean equals(Item item) {
+		return this.itemID.equals(item.getItemID());
+	}
+	
+	
+	public int hashCode() {
+		return this.itemID.hashCode();
 	}
 }
