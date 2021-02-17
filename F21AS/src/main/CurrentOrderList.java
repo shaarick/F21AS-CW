@@ -1,4 +1,5 @@
 package main;
+import java.text.DecimalFormat;
 import java.util.*;
 import javax.swing.DefaultListModel; 
 
@@ -91,7 +92,7 @@ public class CurrentOrderList {
 		DefaultListModel listModel = new DefaultListModel();
 		listModel.addElement("Item                  Price    Quantity  Total");
         for (Item c : currentOrderList) {
-        	listModel.addElement(c.getCurrentOrderItemLine());
+        	listModel.addElement(getCurrentOrderItemLine(c));
         }
         return listModel;
 	}
@@ -105,4 +106,9 @@ public class CurrentOrderList {
         }
 		return (coi);
 	}
+	
+	//return a String corresponding to the item ordered, used as part of the table presented in the GUI
+    public String getCurrentOrderItemLine(Item currentOrderItem) {
+        return (String.format("%-16s", currentOrderItem.getItemName()) + "      " + new DecimalFormat("00.00").format(currentOrderItem.getItemPrice()) + "$      " + String.format("%d", currentOrderItem.getItemQuantity()) + "      " + new DecimalFormat("00.00").format(currentOrderItem.getItemPriceTotal()) + "$");
+    }
 }
