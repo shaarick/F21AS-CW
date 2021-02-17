@@ -22,17 +22,26 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 	JTextArea displayList, detailsList;
 	
 	private CurrentOrderList col = new CurrentOrderList();
-	private MenuList ml = new MenuList();
+	private MenuList ml;
+	private OrdersList ordersList;
 	
 	int currentOrderListIndex = -1;
 	int currentOrderListSize = 0;
 	
-	JList<String> foodList = new JList<String>(ml.getListFood());
-	JList<String> beverageList = new JList<String>(ml.getListBeverage());
-	JList<String> merchandizingList = new JList<String>(ml.getListMerchandise());
-	JList<String> currentOrderList = new JList<String>(col.getList());
+	JList<String> foodList;
+	JList<String> beverageList;
+	JList<String> merchandizingList;
+	JList<String> currentOrderList;
 
-	public CoffeeShopGUI() {
+	public CoffeeShopGUI(MenuList menuListIn, OrdersList ordersListIn) {
+		ml = menuListIn;
+		ordersList = ordersListIn;
+		
+		foodList = new JList<String>(ml.getListFood());
+		beverageList = new JList<String>(ml.getListBeverage());
+		merchandizingList = new JList<String>(ml.getListMerchandise());
+		currentOrderList = new JList<String>(col.getList());
+
 		setTitle("Coffee Shop Menu");
 
 		createTop();
@@ -243,6 +252,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 		if (e.getSource() == order) {
 			if (col.calculateTotal() != 0)
 				System.out.println("Total order for " + totalAmount.getText() + " has been confirmed and is being prepared !");
+			ordersList.addCurrentOrderToList(col);
 			col.removeAllItems();
 			currentOrderList.setModel(col.getList());
 			totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
