@@ -16,8 +16,9 @@ import java.util.regex.Pattern;
  */
 
 public class CoffeeShopGUI extends JFrame implements ActionListener {
+	JFrame discountsFrame;
 	JTextField promoText, totalAmount;
-	JButton substract, add, delete, order, close;
+	JButton substract, add, delete, discounts, order, close;
 	JScrollPane scrollList, scrollListB, scrollListC, scrollListD;
 	JTextArea displayList, detailsList;
 	
@@ -90,6 +91,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			        	currentOrderList.setModel(col.getList());
 			        	foodList.clearSelection();
 			        	totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
+			        	promoText.setText(col.getDiscountsLine());
 			        }
 			        if (foodList.getSelectedIndex() == 0)
 			        	foodList.clearSelection();
@@ -113,6 +115,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			        	currentOrderList.setModel(col.getList());
 			        	beverageList.clearSelection();
 			        	totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
+			        	promoText.setText(col.getDiscountsLine());
 			        }
 			        if (beverageList.getSelectedIndex() == 0)
 			        	beverageList.clearSelection();
@@ -136,6 +139,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			        	currentOrderList.setModel(col.getList());
 			        	merchandizingList.clearSelection();
 			        	totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
+			        	promoText.setText(col.getDiscountsLine());
 			        }
 			        if (merchandizingList.getSelectedIndex() == 0)
 			        	merchandizingList.clearSelection();
@@ -197,15 +201,18 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 		 
 		 //the Discount and Total sections
 		 JPanel modifPanel = new JPanel();
-		 modifPanel.add(new JLabel("Discount:"), BorderLayout.CENTER);
+		 discounts = new JButton("Discounts:");
+		 discounts.addActionListener(this);
+		 modifPanel.add(discounts, BorderLayout.CENTER);
+		 //modifPanel.add(new JLabel("Discounts:"), BorderLayout.CENTER);
 		 promoText = new JTextField(52);
 		 promoText.setEditable(false);
-		 promoText.setText("None");
 		 modifPanel.add(promoText, BorderLayout.CENTER);
 		 modifPanel.add(new JLabel("Total:"), BorderLayout.CENTER);
 		 totalAmount = new JTextField(5);
 		 totalAmount.setEditable(false);
 		 totalAmount.setText(String.valueOf(col.calculateTotal()));
+		 promoText.setText(col.getDiscountsLine());
 		 modifPanel.add(totalAmount, BorderLayout.CENTER);
 		 
 		 //the Checkout and Close buttons
@@ -222,7 +229,32 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 
 		 this.add(southPanel, BorderLayout.SOUTH);
 	}
-	
+
+	//display the frame containing the details of each discount
+	public void displayDiscounts() {
+		discountsFrame = new JFrame("A window");
+		discountsFrame.setTitle("Available Discounts");
+		JPanel northPanel = new JPanel();
+		northPanel.setLayout(new GridLayout(13,1));
+		northPanel.add(new JLabel(""));
+		northPanel.add(new JLabel("    3 Identical Beverages Discount:"));
+		northPanel.add(new JLabel("        For 3 identical beverage items bought, the third one is free."));
+		northPanel.add(new JLabel("        Applies every 3 identical beverage."));
+		northPanel.add(new JLabel(""));
+		northPanel.add(new JLabel("    3 Merchandise Items And More Discount:"));
+		northPanel.add(new JLabel("        For 3 merchandise items and more bought, the cheapest one is free.    "));
+		northPanel.add(new JLabel(""));
+		northPanel.add(new JLabel("    10 Items And More Discount:"));
+		northPanel.add(new JLabel("        For 10 items and more bought, 10% are deduced from your order."));
+		northPanel.add(new JLabel(""));
+		northPanel.add(new JLabel("    All offers are cumulative."));
+		northPanel.add(new JLabel(""));
+		discountsFrame.add(northPanel, BorderLayout.NORTH);
+		discountsFrame.pack();
+		discountsFrame.setLocationRelativeTo(null); //center it
+		discountsFrame.setVisible(true);
+	}
+
 	//respond to the click of a button, according to the button that has been pressed
 	public void actionPerformed(ActionEvent e) {
 		int index = foodList.getSelectedIndex();
@@ -231,6 +263,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
         	currentOrderList.setModel(col.getList());
         	currentOrderList.setSelectedIndex(currentOrderListIndex);
         	totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
+        	promoText.setText(col.getDiscountsLine());
 	    }
 		if (e.getSource() == substract && currentOrderListIndex != -1 && currentOrderListIndex != 0) {
 			currentOrderListSize = currentOrderList.getModel().getSize();
@@ -241,6 +274,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
         	else
         		currentOrderList.setSelectedIndex(currentOrderListIndex);
         	totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
+        	promoText.setText(col.getDiscountsLine());
 	    }
 		if (e.getSource() == delete && currentOrderListIndex != -1 && currentOrderListIndex != 0) {
 			currentOrderListSize = currentOrderList.getModel().getSize();
@@ -248,7 +282,12 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
         	currentOrderList.setModel(col.getList());
         	currentOrderList.setSelectedIndex(currentOrderListIndex - 1);
         	totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
+        	promoText.setText(col.getDiscountsLine());
 	    }
+		
+		if (e.getSource() == discounts) {
+			displayDiscounts();
+		}
 		if (e.getSource() == order) {
 			if (col.calculateTotal() != 0)
 				System.out.println("Total order for " + totalAmount.getText() + " has been confirmed and is being prepared !");
@@ -256,7 +295,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			col.removeAllItems();
 			currentOrderList.setModel(col.getList());
 			totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
-			
+			promoText.setText(col.getDiscountsLine());
 		}
 		if (e.getSource() == close)
 			System.exit(0);
