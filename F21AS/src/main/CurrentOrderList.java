@@ -13,8 +13,18 @@ import javax.swing.DefaultListModel;
 public class CurrentOrderList {
 	private static Set<Item> currentOrderList;
 	
-	public CurrentOrderList() { currentOrderList = new HashSet<Item>();};
+	private boolean discounts[] = {false, false, false};
 	
+	public CurrentOrderList() { currentOrderList = new HashSet<Item>(); };
+	
+	public boolean[] getDiscounts() { return discounts; }
+
+	public void setDiscounts(boolean discA, boolean discB, boolean discC) {
+		discounts[0] = discA;
+		discounts[1] = discB;
+		discounts[2] = discC;
+	}
+
 	//add an element to the set
 	public void addToList(Item mi) {
 		for (Item coi : currentOrderList) {
@@ -82,11 +92,70 @@ public class CurrentOrderList {
 	public double calculateTotal() {
 		double total = 0;
 		for (Item coi : currentOrderList) {
-			total+=coi.getItemPriceTotal();
+			total += coi.getItemPriceTotal();
 		}
+		total = calculateDiscounts(total);
 		return total;
 	}
 	
+	//determine the discounts applicable on the current order and apply them to the order's total
+	public double calculateDiscounts(double total) {
+		double beverageDiscount = 0;
+		double merchDiscount = 0;
+		int nbMerchArticles = 0;
+		int nbTotalArticles = 0;
+
+		for (Item coi : currentOrderList) {
+			if (coi.getItemID().substring(0, 4).equals("BEVE") && coi.getItemQuantity() > 2) {
+				beverageDiscount += (coi.getItemQuantity() / 3) * coi.getItemPrice();
+			}
+			if (coi.getItemID().substring(0, 4).equals("MERC")) {
+				nbMerchArticles += coi.getItemQuantity();
+				merchDiscount = coi.getItemPrice();
+			}
+			nbTotalArticles += coi.getItemQuantity();
+		}
+
+		//only if the number of merchandise items exceeds 3, we look for the cheapest
+		//in order to reduce computation time if there is less than 3 merchandise items
+		if (nbMerchArticles >= 3) {
+			for (Item coi : currentOrderList) {
+				if (coi.getItemID().substring(0, 4).equals("MERC") && coi.getItemPrice() < merchDiscount)
+					merchDiscount = coi.getItemPrice();
+			}
+			
+		}
+		else
+			merchDiscount = 0;
+
+		//identical beverages discount: for 3 identical beverages bought, the third one is free
+		if (beverageDiscount > 0) {
+			discounts[0] = true;
+			total -= beverageDiscount;
+		}
+		else
+			discounts[0] = false;
+
+		//merchandise items discount: for more than 3 merchandise items bought included, the cheapest one is free
+		if (merchDiscount > 0) {
+			discounts[1] = true;
+			total -= merchDiscount;
+		}
+		else
+			discounts[1] = false;
+
+		//total number of articles discount: for more than 10 articles bought included, you get 10% off your order
+		if (nbTotalArticles >= 10) {
+			discounts[2] = true;
+			total *= 0.9;
+		}
+		else
+			discounts[2] = false;
+
+		//all discounts can be combined
+		return total;
+	}
+
 	//return a List<String> of all the items in the order, each one represented by a String
 	public DefaultListModel getList() {
 		DefaultListModel listModel = new DefaultListModel();
@@ -110,5 +179,10 @@ public class CurrentOrderList {
 	//return a String corresponding to the item ordered, used as part of the table presented in the GUI
     public String getCurrentOrderItemLine(Item currentOrderItem) {
         return (String.format("%-16s", currentOrderItem.getItemName()) + "      " + new DecimalFormat("00.00").format(currentOrderItem.getItemPrice()) + "$      " + String.format("%d", currentOrderItem.getItemQuantity()) + "      " + new DecimalFormat("00.00").format(currentOrderItem.getItemPriceTotal()) + "$");
+    }
+    
+    //return a String corresponding to the discounts being currently applied on the order
+    public String getDiscountsLine() {
+    	return((discounts[0] ? "3 Identical Beverages Discount\n\n\n" : "") + (discounts[1] ? "3 Merchandise Items and More Discount\n\n\n" : "") + (discounts[2] ? "10 Items And More Discount" : ""));
     }
 }
