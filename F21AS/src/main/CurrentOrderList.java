@@ -16,7 +16,11 @@ public class CurrentOrderList {
 	private boolean discounts[] = {false, false, false};
 	
 	public CurrentOrderList() { currentOrderList = new HashSet<Item>(); };
-	
+
+	public Set<Item> getCurrentOrderList() {
+		return currentOrderList;
+	}
+
 	public boolean[] getDiscounts() { return discounts; }
 
 	public void setDiscounts(boolean discA, boolean discB, boolean discC) {
