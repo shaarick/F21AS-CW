@@ -66,7 +66,8 @@ public class Item {
 
 
 	public void setItemQuantity(int quantity) {
-		this.quantity = quantity;
+		if(quantity>0)
+			this.quantity = quantity;
 	}
 
 
