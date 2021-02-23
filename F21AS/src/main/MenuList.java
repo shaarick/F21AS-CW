@@ -106,6 +106,9 @@ public class MenuList {
 	
 	//return a String corresponding to the menu item, used as part of the table presented in the GUI
 	public String getMenuItemLine(Item menuItem) {
-        return (String.format("%-16s", menuItem.getItemName()) + "  " + String.format("%-25s", menuItem.getItemDescription()) + "  " + String.format("%.2f$", menuItem.getItemPrice()));
+		if (menuItem.getItemDescription().length() <= 25)
+			return (String.format("%-16s", menuItem.getItemName()) + "  " + String.format("%-25s", menuItem.getItemDescription()) + "  " + String.format("%.2f$", menuItem.getItemPrice()));
+		else
+			return (String.format("%-16s", menuItem.getItemName()) + "  " + menuItem.getItemDescription().substring(0,22) + "...  " + String.format("%.2f$", menuItem.getItemPrice()));
     }
 }
