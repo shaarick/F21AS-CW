@@ -1,89 +1,62 @@
 product_id,product_group,product,product_description,current_retail_price
-1,Whole Bean/Teas,Brazilian - Organic,It's like Carnival in a cup. Clean and smooth.,$18.00 
-2,Whole Bean/Teas,Our Old Time Diner Blend,Out packed blend of beans that is reminiscent of the cup of coffee you used to get at a diner. ,$18.00 
-3,Whole Bean/Teas,Espresso Roast,Our house blend for a good espresso shot.,$14.75 
-4,Whole Bean/Teas,Primo Espresso Roast,Our primium single source of hand roasted beans.,$20.45 
-5,Whole Bean/Teas,Columbian Medium Roast,A smooth cup of coffee any time of day. ,$15.00 
-6,Whole Bean/Teas,Ethiopia,From the home of coffee.,$21.00 
-7,Whole Bean/Teas,Jamacian Coffee River,"Ya man, it will start your day off right. ",$19.75 
-8,Whole Bean/Teas,Civet Cat,"The most expensive coffee in the world, the cats do all the work. ",$45.00 
-9,Whole Bean/Teas,Organic Decaf Blend,Our blend of hand picked organic beans that have been naturally decaffinated. ,$22.50 
-10,Whole Bean/Teas,Guatemalan Sustainably Grown,Green beans you can roast yourself. ,$10.00 
-11,Whole Bean/Teas,Lemon Grass,You will think you are Thailand as you sip your cuppa. ,$8.95 
-12,Whole Bean/Teas,Peppermint,Cool and refreshing to help calm your nerves. ,$8.95 
-13,Whole Bean/Teas,English Breakfast,The traditional cup to start your day.,$8.95 
-14,Whole Bean/Teas,Earl Grey,A full leaf of Orange Pekoe blended with organic oil of bergamot.,$8.95 
-15,Whole Bean/Teas,Serenity Green Tea,Mountain grown and harvested at the optimal time. ,$9.25 
-16,Whole Bean/Teas,Traditional Blend Chai,A traditional blend.,$8.95 
-17,Whole Bean/Teas,Morning Sunrise Chai,Fair trade and organic and has a warm finish. ,$9.50 
-18,Whole Bean/Teas,Spicy Eye Opener Chai,A spicier blend to awaken your taste buds.,$10.95 
-19,Whole Bean/Teas,Dark chocolate,This drinking chocolate is smooth and creamy.,$6.40 
-20,Whole Bean/Teas,Sustainably Grown Organic,Certified organic containing the highest quality ingredients. ,$7.60 
-21,Whole Bean/Teas,Chili Mayan,"Fragrant with spices, this is the most flavourful drinking chocolate you will find.",$13.33 
-22,Beverages,Our Old Time Diner Blend Sm,An honest cup a coffee.,$2.00 
-23,Beverages,Our Old Time Diner Blend Rg,An honest cup a coffee.,$2.50 
-24,Beverages,Our Old Time Diner Blend Lg,An honest cup a coffee.,$3.00 
-25,Beverages,Brazilian Sm,It's like Carnival in a cup. Clean and smooth.,$2.20 
-26,Beverages,Brazilian Rg,It's like Carnival in a cup. Clean and smooth.,$3.00 
-27,Beverages,Brazilian Lg,It's like Carnival in a cup. Clean and smooth.,$3.50 
-28,Beverages,Columbian Medium Roast Sm,A smooth cup of coffee any time of day. ,$2.00 
-29,Beverages,Columbian Medium Roast Rg,A smooth cup of coffee any time of day. ,$2.50 
-30,Beverages,Columbian Medium Roast Lg,A smooth cup of coffee any time of day. ,$3.00 
-31,Beverages,Ethiopia Sm,A bold cup when you want that something extra.,$2.20 
-32,Beverages,Ethiopia Rg,A bold cup when you want that something extra.,$3.00 
-33,Beverages,Ethiopia Lg,A bold cup when you want that something extra.,$3.50 
-34,Beverages,Jamaican Coffee River Sm,Still a front runner for good premium coffee. ,$2.45 
-35,Beverages,Jamaican Coffee River Rg,Still a front runner for good premium coffee. ,$3.10 
-36,Beverages,Jamaican Coffee River Lg,Still a front runner for good premium coffee. ,$3.75 
-37,Beverages,Espresso shot,You will think you are in Venice when you sip this one. ,$3.00 
-38,Beverages,Latte,You will think you are in Venice when you sip this one. ,$3.75 
-39,Beverages,Latte Rg,You will think you are in Venice when you sip this one. ,$4.25 
-40,Beverages,Cappuccino,You will think you are in Venice when you sip this one. ,$3.75 
-41,Beverages,Cappuccino Lg,You will think you are in Venice when you sip this one. ,$4.25 
-42,Beverages,Lemon Grass Rg,You will think you are in Thailand. ,$2.50 
-43,Beverages,Lemon Grass Lg,You will think you are in Thailand. ,$3.00 
-44,Beverages,Peppermint Rg,A cool and refreshing cup.,$2.50 
-45,Beverages,Peppermint Lg,A cool and refreshing cup.,$3.00 
-46,Beverages,Serenity Green Tea Rg,Feel the stress leaving your body. ,$2.50 
-47,Beverages,Serenity Green Tea Lg,Feel the stress leaving your body. ,$3.00 
-48,Beverages,English Breakfast Rg,The Queen's favourite cuppa in the morning. ,$2.50 
-49,Beverages,English Breakfast Lg,The Queen's favourite cuppa in the morning. ,$3.00 
-50,Beverages,Earl Grey Rg,Tradition in a cup.,$2.50 
-51,Beverages,Earl Grey Lg,Tradition in a cup.,$3.00 
-52,Beverages,Traditional Blend Chai Rg,Sit back and think of the tropical breezes.,$2.50 
-53,Beverages,Traditional Blend Chai Lg,Sit back and think of the tropical breezes.,$3.00 
-54,Beverages,Morning Sunrise Chai Rg,Face the morning after your yoga routine. ,$2.50 
-55,Beverages,Morning Sunrise Chai Lg,Face the morning after your yoga routine. ,$4.00 
-56,Beverages,Spicy Eye Opener Chai Rg,When you need your eyes opened wide.,$2.55 
-57,Beverages,Spicy Eye Opener Chai Lg,When you need your eyes opened wide.,$3.10 
-58,Beverages,Dark chocolate Rg,"Slightly bitter, but still very rich. ",$3.50 
-59,Beverages,Dark chocolate Lg,"Slightly bitter, but still very rich. ",$4.50 
-60,Beverages,Sustainably Grown Organic Rg,Just pure notes of spice.,$3.75 
-61,Beverages,Sustainably Grown Organic Lg,Just pure notes of spice.,$4.75 
-62,Beverages,Snow Day Hot Chocolate,Added marshmallows for the needed sugar rush.,$3.00 
-63,Add-ons,Carmel syrup,Rich carmel taste,$0.80 
-64,Add-ons,Hazelnut syrup,Bursting with nutty flavour,$0.80 
-65,Add-ons,Sugar Free Vanilla syrup,Our favorite,$0.80 
-66,Beverages,Pumpkin Spice Latte,"Boo, its that time of year again",$4.95 
-67,Beverages,Pumpkin Spice Latte Lg,"Boo, its that time of year again",$5.95 
-68,Beverages,Happy Holidays hot chocolate,"Candy cane and hot chocolate, perfect.",$3.75 
-75,Food,Croissant,Flakey and buttery,$3.25 
-70,Food,Cranberry Scone,Like Grandma used to make,$3.25 
-71,Food,Chocolate Croissant,Chocolate flakes,$3.75 
-72,Food,Ginger Scone,Little bit of spice,$3.25 
-73,Food,Almond Croissant,Crunch!,$3.75 
-74,Food,Ginger Biscotti,Crunch!,$3.50 
-69,Food,Hazelnut Biscotti,Crunch!,$3.50 
-76,Food,Chocolate Chip Biscotti,Crunch!,$3.50 
-77,Food,Oatmeal Scone,Grannys fav,$3.00 
-78,Food,Scottish Cream Scone ,Old time comfort,$4.50 
-79,Food,Jumbo Savory Scone,"Anytime, anywhere",$3.75 
-80,Merchandise,I Need My Bean! Toque,keep your head bean warm,$23.00 
-81,Merchandise,I Need My Bean! T-shirt,Stylish chic,$28.00 
-82,Merchandise,I Need My Bean! Diner mug,Classic,$12.00 
-83,Merchandise,I Need My Bean! Latte cup,The cup and saucer set is the perfect way to enjoy your latte at home,$14.00 
-84,Add-ons,Chocolate syrup,Bursting with chocolate flavour,$0.80 
-85,Beverages,Rio Nights,2 shots of Ouro Brasilerio and pure cane sugar syrup,$6.00 
-87,Beverages,Ouro Brasileiro shot,From Rio,$3.00 
-88,Beverages,Ouro Brasileiro shot promo,Ouro promo,$2.10 
-89,Food,Ginger Scone promo,Little bit of spice,$2.65 
+1,Beverages,Brazilian - Orga,It's like Carnival in a cup. Clean and smooth.,$18.00 
+2,Beverages,Espresso Roast,Our house blend for a good espresso shot.,$14.75 
+3,Beverages,Primo Es Roast,Our primium single source of hand roasted beans.,$20.45 
+4,Beverages,Civet Cat,"The most expensive coffee in the world, the cats do all the work. ",$45.00 
+5,Beverages,Organic Decaf,Our blend of hand picked organic beans that have been naturally decaffinated. ,$22.50 
+6,Beverages,Guatemala Grown,Green beans you can roast yourself. ,$10.00 
+7,Beverages,Chili Mayan,"Fragrant with spices, this is the most flavourful drinking chocolate you will find.",$13.33 
+8,Beverages,Old Time Diner,An honest cup a coffee.,$2.00 
+9,Beverages,Brazilian,It's like Carnival in a cup. Clean and smooth.,$2.20 
+10,Beverages,Columbian Roast,A smooth cup of coffee any time of day. ,$2.00 
+11,Beverages,Ethiopia,A bold cup when you want that something extra.,$2.20 
+12,Beverages,Jamaican River,Still a front runner for good premium coffee. ,$2.45 
+13,Beverages,Espresso Shot,You will think you are in Venice when you sip this one. ,$3.00 
+14,Beverages,Latte,You will think you are in Venice when you sip this one. ,$3.75 
+15,Beverages,Cappuccino,You will think you are in Venice when you sip this one. ,$3.75 
+16,Beverages,Lemon Grass,You will think you are in Thailand. ,$2.50 
+17,Beverages,Peppermint,A cool and refreshing cup.,$2.50 
+18,Beverages,Serenity Tea,Feel the stress leaving your body. ,$2.50 
+19,Beverages,English Break,The Queen's favourite cuppa in the morning. ,$2.50 
+20,Beverages,Earl Grey,Tradition in a cup.,$2.50 
+21,Beverages,Tradition Chai,Sit back and think of the tropical breezes.,$2.50 
+22,Beverages,Morning Sunrise,Face the morning after your yoga routine. ,$2.50 
+23,Beverages,Spicy Eye Open,When you need your eyes opened wide.,$2.55 
+24,Beverages,Dark Chocolate,"Slightly bitter, but still very rich. ",$3.50 
+25,Beverages,Grown Organic,Just pure notes of spice.,$3.75 
+26,Beverages,Snow Hot Choco,Added marshmallows for the needed sugar rush.,$3.00 
+27,Beverages,Pumpkin Spice,"Boo, its that time of year again.",$4.95 
+28,Beverages,Happy Holidays,"Candy cane and hot chocolate, perfect.",$3.75 
+29,Beverages,Rio Nights,2 shots of Ouro Brasilerio and pure cane sugar syrup.,$6.00 
+30,Beverages,Brasileiro Shot,From Rio.,$3.00 
+31,Food,Croissant,Flakey and buttery.,$3.25 
+32,Food,Cranberry Scone,Like Grandma used to make.,$3.25 
+33,Food,Choco Croissant,Chocolate flakes.,$3.75 
+34,Food,Ginger Scone,Little bit of spice.,$3.25 
+35,Food,Almond Croissant,Almond Crunch!,$3.75 
+36,Food,Ginger Biscotti,Ginger Crunch!,$3.50 
+37,Food,Hazel Biscotti,Crunch!,$3.50 
+38,Food,Choco Biscotti,Crunch!,$3.50 
+39,Food,Oatmeal Scone,Grannys fav.,$3.00 
+40,Food,Scottish Scone,Old Time comfort.,$4.50 
+41,Food,Jumbo Scone,"Anytime, Anywhere.",$3.75 
+42,Food,Choux à la crème,"The original, from France.",$2.00 
+43,Food,Éclair Chocolate,Filled with creamy chocolate custard.,$2.50 
+44,Food,Éclair Coffee,Filled with creamy coffee custard.,$2.50 
+45,Food,Paris Brest,From Paris - to Brest.,$3.50 
+46,Food,Flan Vanille,Light Pastry with a slight vanilla flavor.,$2.00 
+47,Food,Chouquettes 20u,Filled with air !,$1.50 
+48,Food,3 MapleS Pancake,"The fluffy ones, a al Louis.",$2.50 
+49,Food,Choco Brownie,With Pecan nuts.,$1.50 
+50,Food,Raspberry Muffin,Feel the strengh of the fruit.,$2.00 
+51,Food,Blueberry Pie,Enjoy the clash of textures.,$2.50 
+52,Merchandise,I Need ! Toque,Keep your head bean warm.,$23.00 
+53,Merchandise,I Need ! T-shirt,Stylish chic.,$28.00 
+54,Merchandise,I Need ! Mug,Classic.,$12.00 
+55,Merchandise,I Need ! Cup,The cup and saucer set is the perfect way to enjoy your latte at home.,$14.00 
+56,Merchandise,I Need ! Glasses,Protect your eyes !,$17.50 
+57,Merchandise,I Need ! Scarf,Useful during the winter.,$120.00 
+58,Merchandise,I Need ! Ink Pen,Didn't know you could write that well !,$20.00 
+59,Merchandise,I Need ! Gloves,Drive with style.,$75.00 
+60,Merchandise,I Need ! Watch,Don't forget coffee time.,$110.00 
+61,Merchandise,I Need ! Ring,Look up at your ancestors.,$35.00 
