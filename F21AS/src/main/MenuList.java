@@ -16,15 +16,15 @@ public class MenuList {
 	public MenuList() { menuList = new HashSet<Item>(); };
 	
 	//add an element to the set
-	public void addToList(Item item) {
+	public void addToList(Item item) throws IncorrectItemForMenuList {
 		//checking the length of the item's ID
     	if (item.getItemID().trim().length() < 5) {
-        	throw new IllegalStateException("ItemID is too short.");
+        	throw new IncorrectItemForMenuList("Item ID is too short.");
         }
     	
     	//checking the format of the item's ID: starting with FOOD, BEVE or MERC
         if (!item.getItemID().substring(0, 4).equals("FOOD") && !item.getItemID().substring(0, 4).equals("BEVE") && !item.getItemID().substring(0, 4).equals("MERC")) {
-        	throw new IllegalStateException("ItemID category identifier incorrect.");
+        	throw new IncorrectItemForMenuList("Item ID category identifier incorrect.");
         }
         
         //checking the format of the item's ID: having at least a number after category identifier
@@ -32,22 +32,22 @@ public class MenuList {
         	int i = Integer.parseInt(item.getItemID().substring(4, 5)); 
         }
         catch (NumberFormatException e) {
-        	throw new NumberFormatException("ItemID doesn't have a number identifier.");
+        	throw new IncorrectItemForMenuList("Item ID doesn't have a number identifier.");
         }
         
         //checking the length of the item's name
         if (item.getItemName().trim().length() == 0) {
-        	throw new IllegalStateException("Item name blank.");
+        	throw new IncorrectItemForMenuList("Item name blank.");
         }
         
         //checking the value of item's quantity
         if (item.getItemQuantity() < 1) {
-        	throw new IllegalStateException("Quantity negative or null.");
+        	throw new IncorrectItemForMenuList("Item quantity negative or null.");
         }
         
         //checking the value of the item's price
         if (item.getItemPrice() < 0) {
-        	throw new IllegalStateException("Item price negative.");
+        	throw new IncorrectItemForMenuList("Item price negative.");
         }
         
 		for (Item mi : menuList) {
