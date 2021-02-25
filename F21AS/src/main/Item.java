@@ -60,7 +60,7 @@ public class Item {
 			this.itemID = itemID;
 		}
 		else {
-			throw new StringLengthException(maxSize);
+			throw new StringLengthException("ID",maxSize);
 		}
 	}
 
@@ -71,7 +71,7 @@ public class Item {
 			this.name = name;
 		}
 		else {
-			throw new StringLengthException(maxSize);
+			throw new StringLengthException("Name",maxSize);
 		}
 	}
 	
@@ -82,7 +82,7 @@ public class Item {
 			this.description = description;
 		}
 		else {
-			throw new StringLengthException(maxSize);
+			throw new StringLengthException("Description",maxSize);
 		}
 	}
 
