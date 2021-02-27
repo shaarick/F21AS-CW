@@ -1,0 +1,7 @@
+Rashid001, 2021-02-27 18:54:15.765, Croissant
+Rashid001, 2021-02-27 18:54:15.765, Croissant
+Rashid001, 2021-02-27 18:54:15.765, Cranberry Scone
+Rashid001, 2021-02-27 18:54:15.765, Ginger Scone
+Nicholas002, 2021-02-28 16:50:13.345, Scottish Cream Scone
+Nicholas002, 2021-02-28 16:50:13.345, Jumbo Savory Scone
+Final cost: 21.25
