@@ -24,7 +24,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 	
 	private CurrentOrderList col = new CurrentOrderList();
 	private MenuList ml;
-	private OrdersList ordersList;
+	private OrderList ordersList;
 	private Customer c = new Customer();
 	
 	int currentOrderListIndex = -1;
@@ -35,7 +35,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 	JList<String> merchandizingList;
 	JList<String> currentOrderList;
 
-	public CoffeeShopGUI(MenuList menuListIn, OrdersList ordersListIn) {
+	public CoffeeShopGUI(MenuList menuListIn, OrderList ordersListIn) {
 		ml = menuListIn;
 		ordersList = ordersListIn;
 		
@@ -293,7 +293,12 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			if (col.calculateTotal() != 0)
 				System.out.println("Total order for " + totalAmount.getText() + " has been confirmed and is being prepared !");
 			ordersList.addCurrentOrderToList(c, col);
-			c.generatenewcustomer();
+			try {
+				c.generatenewcustomer();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			col.removeAllItems();
 			currentOrderList.setModel(col.getList());
 			totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
