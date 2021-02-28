@@ -10,10 +10,29 @@ import javax.swing.DefaultListModel;
  * @author Nicolas JEAN - nj2000 - H00359359
  */
 
-public class MenuList {
+public class MenuList implements Iterable<Item> {
 	private static Set<Item> menuList;
 	
 	public MenuList() { menuList = new HashSet<Item>(); };
+
+	// Implementing iterator so we can loop over menuList when creating report
+	@Override
+	public Iterator<Item> iterator() {
+		return new Iterator<Item>(){
+
+			private final Iterator<Item> item = menuList.iterator();
+			@Override
+			public boolean hasNext() {
+				return item.hasNext();
+			}
+
+			@Override
+			public Item next() {
+				return item.next();
+			}
+			
+		};
+	}
 	
 	//add an element to the set
 	public void addToList(Item item) throws IncorrectItemForMenuList {
