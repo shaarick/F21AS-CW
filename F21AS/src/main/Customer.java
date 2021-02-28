@@ -86,7 +86,7 @@ public class Customer {
 
 		String NameNumber = lastEntry.substring(0,pointer);
 		int value = Integer.parseInt(NameNumber.replaceAll("[^0-9]", "")); //get the number
-		return value;
+		return value++;
 	}
 
 	/**
