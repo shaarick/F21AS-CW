@@ -24,6 +24,10 @@ public class ItemJUnitTests {
 		assertEquals(2,item1.getItemQuantity());
 		assertTrue(item1.getItemPrice()==20);
 		assertTrue(item1.getItemPriceTotal()==40);
+		item1.addOne();
+		assertEquals(3,item1.getItemQuantity());
+		assertTrue(item1.getItemPriceTotal()==60);
+		
 		
 		//Check fields of item 2
 		assertTrue(item2.getItemID().equals("FOOD002"));

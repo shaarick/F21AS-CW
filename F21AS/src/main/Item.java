@@ -18,19 +18,23 @@ public class Item {
 		catch(StringLengthException exception) {
 			System.out.println(exception.getMessage());
 		}
+		
 		try {
 			setItemName(name);
 		}
 		catch(StringLengthException exception) {
 			System.out.println(exception.getMessage());
 		}
+		
 		try {
 			setItemDescription(description);
 		}
 		catch(StringLengthException exception) {
 			System.out.println(exception.getMessage());
 		}
+		
 		setItemQuantity(quantity);
+		
 		setItemPrice(price);
 	}
 
@@ -124,7 +128,7 @@ public class Item {
 	}
 	
 	//Set price total of item as product of price and quantity of item
-	public void setItemPriceTotal() {
+	private void setItemPriceTotal() {
 		priceTotal = price*quantity;
 	}
 	
@@ -133,13 +137,13 @@ public class Item {
 	//Increment quantity and total price of item
 	public void addOne() {
 		quantity++;
-		priceTotal+=price;
+		setItemPriceTotal();
 	}
 	
 	//Decrement quantity and total price of item
 	public void substractOne() {
 		quantity--;
-		priceTotal-=price;
+		setItemPriceTotal();
 	}
 	
 	//Compare one item to another using item IDs
