@@ -305,7 +305,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			promoText.setText(col.getDiscountsLine());
 		}
 		if (e.getSource() == close) {
-			CoffeeShopIO.createReport();
+			CoffeeShopIO.createReport(MenuList, OrderList);
 			System.exit(0);
 		}
 	}
