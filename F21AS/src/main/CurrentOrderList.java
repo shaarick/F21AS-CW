@@ -64,7 +64,7 @@ public class CurrentOrderList {
         			System.out.println(coi.getItemName() + " deleted from the order.");
         		}
         		else {
-        			coi.substractOne();
+        			coi.subtractOne();
         			System.out.println(coi.getItemName() + ": -1 removed from quantity");
         		}
         		
