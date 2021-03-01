@@ -27,6 +27,9 @@ public class ItemJUnitTests {
 		item1.addOne();
 		assertEquals(3,item1.getItemQuantity());
 		assertTrue(item1.getItemPriceTotal()==60);
+		item1.subtractOne();
+		assertEquals(2,item1.getItemQuantity());
+		assertTrue(item1.getItemPriceTotal()==40);
 		
 		
 		//Check fields of item 2

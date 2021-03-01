@@ -141,7 +141,7 @@ public class Item {
 	}
 	
 	//Decrement quantity and total price of item
-	public void substractOne() {
+	public void subtractOne() {
 		quantity--;
 		setItemPriceTotal();
 	}
