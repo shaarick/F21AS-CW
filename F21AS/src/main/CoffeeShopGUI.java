@@ -304,7 +304,9 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			totalAmount.setText(String.format("%.2f$", col.calculateTotal()));
 			promoText.setText(col.getDiscountsLine());
 		}
-		if (e.getSource() == close)
+		if (e.getSource() == close) {
+			CoffeeShopIO.createReport();
 			System.exit(0);
+		}
 	}
 }
