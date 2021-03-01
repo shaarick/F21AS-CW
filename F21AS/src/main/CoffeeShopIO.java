@@ -8,25 +8,39 @@ import java.util.Arrays;
 
 /**
  * CoffeeShopIO Class.
+ * <p>
+ * In this class, we will read menu items from a file and initialize them as
+ * Item objects. These items are then added to a MenuList object which is passed
+ * to our GUI. It also receives an OrderList object from the Main/Manager class,
+ * which contains details about orders placed prior to opening the GUI, i.e.
+ * they they are existing orders. This OrderList object will also be passed to
+ * the GUI, so that any new orders can be appended to it. On exit, this class
+ * will use the OrderList file to create the final report.
+ * <p>
  * 
  * @author Shariq Farooqui
  */
 public class CoffeeShopIO {
     private MenuList ml;
-    private OrderList ol;
+    private OrderList orderList;
     private CoffeeShopGUI gui;
     private String report;
-    private double totalIncome;
 
-    // Constructor
-    public CoffeeShopIO(String filename) {
+    /**
+     * Constructor for CoffeeShopIO Class.
+     * 
+     * @param filename Name of file from which menu items will be extracted.
+     * @param orders   Object containing existing orders.
+     * 
+     */
+    public CoffeeShopIO(String filename, OrderList orders) {
         readMenuFile(filename);
-        readOrdersFile(filename);
-        gui = new CoffeeShopGUI(ml, ol);
-        // createReport();
+        orderList = orders;
+        // readOrderList();
+        gui = new CoffeeShopGUI(ml, orderList);
     }
 
-    // Get and Set Methods
+    // Get and Set Methods for the instance variables.
     public MenuList getMl() {
         return this.ml;
     }
@@ -35,12 +49,12 @@ public class CoffeeShopIO {
         this.ml = ml;
     }
 
-    public OrderList getOl() {
-        return this.ol;
+    public OrderList getOrderList() {
+        return this.orderList;
     }
 
-    public void setOl(OrderList ol) {
-        this.ol = ol;
+    public void setOrderList(OrderList orderList) {
+        this.orderList = orderList;
     }
 
     public CoffeeShopGUI getGui() {
@@ -59,22 +73,17 @@ public class CoffeeShopIO {
         this.report = report;
     }
 
-    public double getTotalIncome() {
-        return this.totalIncome;
-    }
-
-    public void setTotalIncome(double totalIncome) {
-        this.totalIncome = totalIncome;
-    }
-
-    // Method to read raw menu file and create item objects.
+    /**
+     * Method used to read menu file and create Item objects.
+     * 
+     * @param filename Name of the menu file.
+     */
     public void readMenuFile(String filename) {
         try {
             // Create a reader to read csv file.
-            BufferedReader reader = new BufferedReader(new FileReader("product.csv"));
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
 
-            // Counter which elps us skip the first row of the csv that contains column
-            // names.
+            // Counter to skip the first row of csv that contains column names.
             int lineToBeSkipped = 0;
 
             // Each line of the csv will be stored in this variable.
@@ -83,19 +92,26 @@ public class CoffeeShopIO {
             // Assign line from csv to variable and keep reading until EOF.
             while ((line = reader.readLine()) != null) {
 
-                // Skip column names.
+                // Read file if it is not the first row
                 if (lineToBeSkipped != 0) {
-
                     // Split line into individual elements of the item constructor.
                     String[] lineSplit = line.split(",");
+
                     String itemID = lineSplit[0];
                     String name = lineSplit[2];
                     String description = lineSplit[3];
+
+                    // Each line can represent only one item, hence quantity is always 1.
                     int quantity = 1;
+
+                    /*
+                     * File contains price with dollar symbol. We remove it and then parse the
+                     * string to a Double
+                     */
                     String priceWithoutCurrencySymbol = lineSplit[4].replace("$", "");
                     double price = Integer.parseInt(priceWithoutCurrencySymbol);
 
-                    // Create item from the line we read.
+                    // Create Item object using the individual elements in the line we read.
                     Item itemFromLine = new Item(itemID, name, description, quantity, price);
 
                     // Add item to menu list.
@@ -113,86 +129,113 @@ public class CoffeeShopIO {
         }
     }
 
-    public void readOrdersFile(String filename) {
-        try {
-            // Create a reader to read txt file.
-            BufferedReader reader2 = new BufferedReader(new FileReader("OrderList.txt"));
-
-            // Each line of the csv will be stored in this variable.
-            String line = "";
-
-            while ((line = reader2.readLine()) != null) {
-                // Split line into order details
-                String[] lineSplit = line.split(",");
-
-                if (lineSplit.length > 1) {
-                    String name = lineSplit[0];
-                    String timeStamp = lineSplit[1].trim();
-                    String item = lineSplit[2].trim();
-                    // ol.appendToOrderList(name, timeStamp, item);
-                } else {
-                    // Convert last line to a String:
-                    String lastLine = Arrays.toString(lineSplit);
-                    // Extract the number:
-                    String stringNumber = lastLine.substring(12, lastLine.length() - 1);
-                    // Convert to double and assign to income variable.
-                    totalIncome = Double.parseDouble(stringNumber);
-
-                }
-            }
-            // Close reader to prevent resource leak.
-            reader2.close();
-        } catch (IOException error) {
-            System.out.println("File not found.");
-        }
-    }
-
-    public void createReport() {
+    public static void createReport(MenuList menu, OrderList orders) {
         try {
             // Create a new file. The parameter true allows for appending.
             FileWriter writer = new FileWriter("report.txt", true);
-            String columns = "Menu Item \t Number of times item ordered \t Income";
-            writer.write(columns);
+
+            // Write first row containing column names to the report.
+            String columnName = "Menu Item \t Number of times item ordered \t Income from Item";
+            writer.write(columnName);
 
             // Loop over each item
-            for (Item i : ml) {
-                // Get item name and set default ordered quantity to zero
-                String itemLine = "";
-                String itemName = i.getItemName();
+            for (Item item : menu) {
+                // Counter to store number of times an item appeared in the orders list.
                 int itemCount = 0;
-                String line = "";
 
-                try {
-                    // Using the reader, loop over every line and count how many items an item appears in orders file
-                    BufferedReader reader3 = new BufferedReader(new FileReader("OrderList.txt"));
-                    while ((line = reader3.readLine()) != null) {
-                        String[] lineSplit = line.split(",");
-                        if (lineSplit.length > 1) {
-                            String fileItem = lineSplit[2].trim();
-                            // If menulist item (i) matches 
-                            if (fileItem == itemName) {
-                                // Then increase count by one
-                                itemCount++;
-                            }
+                // Loop over each element of the orders ArrayList
+                for (String line : orders) {
+                    /*
+                     * Last line always begins with final, but that line has no Item Objects so we
+                     * skip it
+                     */
+                    if (line.substring(0, 6) != "Final") {
+                        /*
+                         * Get index of item name, which appears after the second occurance of ","
+                         * character
+                         */
+                        int indexOfItem = line.indexOf(",", (line.indexOf(",") + 1));
+                        // Get item as a string from Order file
+                        String stringItem = line.substring(indexOfItem + 1).trim();
+                        // If the item in the orders object matches the menu item, increase count:
+                        if (item.getItemName() == stringItem) {
+                            itemCount++;
                         }
                     }
-                    // Calculate income earned from just this item, price times quantity
-                    Double income = itemCount * i.getItemPrice();
-                    // Add line to report
-                    itemLine += itemName + "\t" + itemCount + "\t" + income + "\n";
-                    writer.write(itemLine);
-                } catch (IOException error) {
-                    System.out.println("File not found.");
                 }
+
+                /*
+                 * At this point, we took an item from the menu and matched it against all items
+                 * in the orders ArrayList. We now have the number of times each item was
+                 * ordered. To write a line in the file, we need item name, quantity and revenue
+                 */
+                String itemName = item.getItemName();
+                Double itemRevenue = itemCount * item.getItemPrice();
+
+                // This string will contain relevant all item details
+                String itemLine = itemName + "\t" + itemCount + "\t" + itemRevenue + "\n";
+                writer.write(itemLine);
             }
-            // Only works if Rashid's method updates income properly. Otherwise I can keep track of it manually as well.
-            String inc = "Total income for all orders: " + totalIncome;
-            writer.write(inc);
-        }
-        // Finish try block with catch statement.
-        catch (IOException error) {
-            System.out.println("An error occured.");
-            error.printStackTrace();
+            // Write the final line of report
+            String finalLine = "Total Revenue (inc. discounts): " + orders.getCost;
+            writer.write(finalLine);
+
+            // Close writer to prevent resource leak.
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Report already exists");
+            System.out.println(e.getStackTrace());
         }
     }
+
+    // public void readOrderList() {
+    //     // Loop over each element
+    //     for (String line : orderList) {
+    //         // Last line always begins with final, but that line has no Item Objects so we
+    //         // skip it
+    //         if (line.substring(0, 6) != "Final") {
+    //             // Get index of item name, which appears after the second occurance of ","
+    //             // character
+    //             int indexOfItem = line.indexOf(",", (line.indexOf(",") + 1));
+    //             // Get item as a string from Order file
+    //             String item = line.substring(indexOfItem + 1).trim();
+    //             // Get the item object using the String and updates its quantity by 1.
+    //             ml.getMenuItem(item).addOne();
+    //         }
+    //     }
+
+    // }
+
+
+    // public void createReport() {
+    //     try {
+    //         // Create a new file. The parameter true allows for appending.
+    //         FileWriter writer = new FileWriter("report.txt", true);
+
+    //         // Write first row containing column names to the report.
+    //         String columns = "Menu Item \t Number of times item ordered \t Income from Item";
+    //         writer.write(columns);
+
+    //         // Loop over each item
+    //         for (Item i : ml) {
+    //             // Get item details for the report
+    //             String itemName = i.getItemName();
+    //             int itemCount = i.getItemQuantity();
+    //             Double revenue = i.getItemPriceTotal();
+
+    //             // Write item details to file
+    //             String itemLine = itemName + "\t" + itemCount + "\t" + revenue + "\n";
+    //             writer.write(itemLine);
+    //         }
+    //         // Write the total income for the coffee shop in the last line
+    //         String lastLine = "Total income from all orders(incl. discounts): " + orderList.getCost;
+    //         writer.write(lastLine);
+    //         writer.close();
+    //     }
+    //     // Finish try block with catch statement.
+    //     catch (IOException error) {
+    //         System.out.println("An error occured.");
+    //         error.printStackTrace();
+    //     }
+    // }
 }
