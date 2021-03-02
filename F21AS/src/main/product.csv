@@ -1,62 +1,62 @@
 product_id,product_group,product,product_description,current_retail_price
-BEVE1,Beverages,Brazilian - Orga,It's like Carnival in a cup. Clean and smooth.,$18.00 
-BEVE2,Beverages,Espresso Roast,Our house blend for a good espresso shot.,$14.75 
-BEVE3,Beverages,Primo Es Roast,Our primium single source of hand roasted beans.,$20.45 
-BEVE4,Beverages,Civet Cat,"The most expensive coffee in the world, the cats do all the work. ",$45.00 
-BEVE5,Beverages,Organic Decaf,Our blend of hand picked organic beans that have been naturally decaffinated. ,$22.50 
-BEVE6,Beverages,Guatemala Grown,Green beans you can roast yourself. ,$10.00 
-BEVE7,Beverages,Chili Mayan,"Fragrant with spices, this is the most flavourful drinking chocolate you will find.",$13.33 
-BEVE8,Beverages,Old Time Diner,An honest cup a coffee.,$2.00 
-BEVE9,Beverages,Brazilian,It's like Carnival in a cup. Clean and smooth.,$2.20 
-BEVE10,Beverages,Columbian Roast,A smooth cup of coffee any time of day. ,$2.00 
-BEVE11,Beverages,Ethiopia,A bold cup when you want that something extra.,$2.20 
-BEVE12,Beverages,Jamaican River,Still a front runner for good premium coffee. ,$2.45 
-BEVE13,Beverages,Espresso Shot,You will think you are in Venice when you sip this one. ,$3.00 
-BEVE14,Beverages,Latte,You will think you are in Venice when you sip this one. ,$3.75 
-BEVE15,Beverages,Cappuccino,You will think you are in Venice when you sip this one. ,$3.75 
-BEVE16,Beverages,Lemon Grass,You will think you are in Thailand. ,$2.50 
-BEVE17,Beverages,Peppermint,A cool and refreshing cup.,$2.50 
-BEVE18,Beverages,Serenity Tea,Feel the stress leaving your body. ,$2.50 
-BEVE19,Beverages,English Break,The Queen's favourite cuppa in the morning. ,$2.50 
-BEVE20,Beverages,Earl Grey,Tradition in a cup.,$2.50 
-BEVE21,Beverages,Tradition Chai,Sit back and think of the tropical breezes.,$2.50 
-BEVE22,Beverages,Morning Sunrise,Face the morning after your yoga routine. ,$2.50 
-BEVE23,Beverages,Spicy Eye Open,When you need your eyes opened wide.,$2.55 
-BEVE24,Beverages,Dark Chocolate,"Slightly bitter, but still very rich. ",$3.50 
-BEVE25,Beverages,Grown Organic,Just pure notes of spice.,$3.75 
-BEVE26,Beverages,Snow Hot Choco,Added marshmallows for the needed sugar rush.,$3.00 
-BEVE27,Beverages,Pumpkin Spice,"Boo, its that time of year again.",$4.95 
-BEVE28,Beverages,Happy Holidays,"Candy cane and hot chocolate, perfect.",$3.75 
-BEVE29,Beverages,Rio Nights,2 shots of Ouro Brasilerio and pure cane sugar syrup.,$6.00 
-BEVE30,Beverages,Brasileiro Shot,From Rio.,$3.00 
-FOOD31,Food,Croissant,Flakey and buttery.,$3.25 
-FOOD32,Food,Cranberry Scone,Like Grandma used to make.,$3.25 
-FOOD33,Food,Choco Croissant,Chocolate flakes.,$3.75 
-FOOD34,Food,Ginger Scone,Little bit of spice.,$3.25 
-FOOD35,Food,Almond Croissant,Almond Crunch!,$3.75 
-FOOD36,Food,Ginger Biscotti,Ginger Crunch!,$3.50 
-FOOD37,Food,Hazel Biscotti,Crunch!,$3.50 
-FOOD38,Food,Choco Biscotti,Crunch!,$3.50 
-FOOD39,Food,Oatmeal Scone,Grannys fav.,$3.00 
-FOOD40,Food,Scottish Scone,Old Time comfort.,$4.50 
-FOOD41,Food,Jumbo Scone,"Anytime, Anywhere.",$3.75 
-FOOD42,Food,Choux à la crème,"The original, from France.",$2.00 
-FOOD43,Food,Éclair Chocolate,Filled with creamy chocolate custard.,$2.50 
-FOOD44,Food,Éclair Coffee,Filled with creamy coffee custard.,$2.50 
-FOOD45,Food,Paris Brest,From Paris - to Brest.,$3.50 
-FOOD46,Food,Flan Vanille,Light Pastry with a slight vanilla flavor.,$2.00 
-FOOD47,Food,Chouquettes 20u,Filled with air !,$1.50 
-FOOD48,Food,3 MapleS Pancake,"The fluffy ones, a al Louis.",$2.50 
-FOOD49,Food,Choco Brownie,With Pecan nuts.,$1.50 
-FOOD50,Food,Raspberry Muffin,Feel the strengh of the fruit.,$2.00 
-FOOD51,Food,Blueberry Pie,Enjoy the clash of textures.,$2.50 
-MERC52,Merchandise,I Need ! Toque,Keep your head bean warm.,$23.00 
-MERC53,Merchandise,I Need ! T-shirt,Stylish chic.,$28.00 
-MERC54,Merchandise,I Need ! Mug,Classic.,$12.00 
-MERC55,Merchandise,I Need ! Cup,The cup and saucer set is the perfect way to enjoy your latte at home.,$14.00 
-MERC56,Merchandise,I Need ! Glasses,Protect your eyes !,$17.50 
-MERC57,Merchandise,I Need ! Scarf,Useful during the winter.,$120.00 
-MERC58,Merchandise,I Need ! Ink Pen,Didn't know you could write that well !,$20.00 
-MERC59,Merchandise,I Need ! Gloves,Drive with style.,$75.00 
-MERC60,Merchandise,I Need ! Watch,Don't forget coffee time.,$110.00 
-MERC61,Merchandise,I Need ! Ring,Look up at your ancestors.,$35.00 
+1,Beverages,Brazilian - Orga,It's like Carnival in a cup. Clean and smooth.,$18.00 
+2,Beverages,Espresso Roast,Our house blend for a good espresso shot.,$14.75 
+3,Beverages,Primo Es Roast,Our primium single source of hand roasted beans.,$20.45 
+4,Beverages,Civet Cat,"The most expensive coffee in the world, the cats do all the work. ",$45.00 
+5,Beverages,Organic Decaf,Our blend of hand picked organic beans that have been naturally decaffinated. ,$22.50 
+6,Beverages,Guatemala Grown,Green beans you can roast yourself. ,$10.00 
+7,Beverages,Chili Mayan,"Fragrant with spices, this is the most flavourful drinking chocolate you will find.",$13.33 
+8,Beverages,Old Time Diner,An honest cup a coffee.,$2.00 
+9,Beverages,Brazilian,It's like Carnival in a cup. Clean and smooth.,$2.20 
+10,Beverages,Columbian Roast,A smooth cup of coffee any time of day. ,$2.00 
+11,Beverages,Ethiopia,A bold cup when you want that something extra.,$2.20 
+12,Beverages,Jamaican River,Still a front runner for good premium coffee. ,$2.45 
+13,Beverages,Espresso Shot,You will think you are in Venice when you sip this one. ,$3.00 
+14,Beverages,Latte,You will think you are in Venice when you sip this one. ,$3.75 
+15,Beverages,Cappuccino,You will think you are in Venice when you sip this one. ,$3.75 
+16,Beverages,Lemon Grass,You will think you are in Thailand. ,$2.50 
+17,Beverages,Peppermint,A cool and refreshing cup.,$2.50 
+18,Beverages,Serenity Tea,Feel the stress leaving your body. ,$2.50 
+19,Beverages,English Break,The Queen's favourite cuppa in the morning. ,$2.50 
+20,Beverages,Earl Grey,Tradition in a cup.,$2.50 
+21,Beverages,Tradition Chai,Sit back and think of the tropical breezes.,$2.50 
+22,Beverages,Morning Sunrise,Face the morning after your yoga routine. ,$2.50 
+23,Beverages,Spicy Eye Open,When you need your eyes opened wide.,$2.55 
+24,Beverages,Dark Chocolate,"Slightly bitter, but still very rich. ",$3.50 
+25,Beverages,Grown Organic,Just pure notes of spice.,$3.75 
+26,Beverages,Snow Hot Choco,Added marshmallows for the needed sugar rush.,$3.00 
+27,Beverages,Pumpkin Spice,"Boo, its that time of year again.",$4.95 
+28,Beverages,Happy Holidays,"Candy cane and hot chocolate, perfect.",$3.75 
+29,Beverages,Rio Nights,2 shots of Ouro Brasilerio and pure cane sugar syrup.,$6.00 
+30,Beverages,Brasileiro Shot,From Rio.,$3.00 
+31,Food,Croissant,Flakey and buttery.,$3.25 
+32,Food,Cranberry Scone,Like Grandma used to make.,$3.25 
+33,Food,Choco Croissant,Chocolate flakes.,$3.75 
+34,Food,Ginger Scone,Little bit of spice.,$3.25 
+35,Food,Almond Croissant,Almond Crunch!,$3.75 
+36,Food,Ginger Biscotti,Ginger Crunch!,$3.50 
+37,Food,Hazel Biscotti,Crunch!,$3.50 
+38,Food,Choco Biscotti,Crunch!,$3.50 
+39,Food,Oatmeal Scone,Grannys fav.,$3.00 
+40,Food,Scottish Scone,Old Time comfort.,$4.50 
+41,Food,Jumbo Scone,"Anytime, Anywhere.",$3.75 
+42,Food,Choux Ã  la crÃ¨me,"The original, from France.",$2.00 
+43,Food,Ã‰clair Chocolate,Filled with creamy chocolate custard.,$2.50 
+44,Food,Ã‰clair Coffee,Filled with creamy coffee custard.,$2.50 
+45,Food,Paris Brest,From Paris - to Brest.,$3.50 
+46,Food,Flan Vanille,Light Pastry with a slight vanilla flavor.,$2.00 
+47,Food,Chouquettes 20u,Filled with air !,$1.50 
+48,Food,3 MapleS Pancake,"The fluffy ones, a al Louis.",$2.50 
+49,Food,Choco Brownie,With Pecan nuts.,$1.50 
+50,Food,Raspberry Muffin,Feel the strengh of the fruit.,$2.00 
+51,Food,Blueberry Pie,Enjoy the clash of textures.,$2.50 
+52,Merchandise,I Need ! Toque,Keep your head bean warm.,$23.00 
+53,Merchandise,I Need ! T-shirt,Stylish chic.,$28.00 
+54,Merchandise,I Need ! Mug,Classic.,$12.00 
+55,Merchandise,I Need ! Cup,The cup and saucer set is the perfect way to enjoy your latte at home.,$14.00 
+56,Merchandise,I Need ! Glasses,Protect your eyes !,$17.50 
+57,Merchandise,I Need ! Scarf,Useful during the winter.,$120.00 
+58,Merchandise,I Need ! Ink Pen,Didn't know you could write that well !,$20.00 
+59,Merchandise,I Need ! Gloves,Drive with style.,$75.00 
+60,Merchandise,I Need ! Watch,Don't forget coffee time.,$110.00 
+61,Merchandise,I Need ! Ring,Look up at your ancestors.,$35.00 

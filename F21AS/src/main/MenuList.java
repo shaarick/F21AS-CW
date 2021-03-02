@@ -1,4 +1,4 @@
-package main;
+package main1;
 import java.util.*;
 import javax.swing.DefaultListModel; 
 
@@ -10,29 +10,10 @@ import javax.swing.DefaultListModel;
  * @author Nicolas JEAN - nj2000 - H00359359
  */
 
-public class MenuList implements Iterable<Item> {
+public class MenuList {
 	private static Set<Item> menuList;
 	
 	public MenuList() { menuList = new HashSet<Item>(); };
-
-	// Implementing iterator so we can loop over menuList when creating report
-	@Override
-	public Iterator<Item> iterator() {
-		return new Iterator<Item>(){
-
-			private final Iterator<Item> item = menuList.iterator();
-			@Override
-			public boolean hasNext() {
-				return item.hasNext();
-			}
-
-			@Override
-			public Item next() {
-				return item.next();
-			}
-			
-		};
-	}
 	
 	//add an element to the set
 	public void addToList(Item item) throws IncorrectItemForMenuList {
@@ -55,28 +36,28 @@ public class MenuList implements Iterable<Item> {
         }
         
         //checking the length of the item's name
-        if (item.getName().trim().length() == 0) {
+        if (item.getItemName().trim().length() == 0) {
         	throw new IncorrectItemForMenuList("Item name blank.");
         }
         
         //checking the value of item's quantity
-        if (item.getQuantity() < 1) {
+        if (item.getItemQuantity() < 1) {
         	throw new IncorrectItemForMenuList("Item quantity negative or null.");
         }
         
         //checking the value of the item's price
-        if (item.getPrice() < 0) {
+        if (item.getItemPrice() < 0) {
         	throw new IncorrectItemForMenuList("Item price negative.");
         }
         
 		for (Item mi : menuList) {
 	        if (item.hashCode() == mi.hashCode()) {
-	        	System.out.println(mi.getName() + " already present in the menu.");
+	        	System.out.println(mi.getItemName() + " already present in the menu.");
 	        	return;
 	        }
 	    }
 	    menuList.add(item);
-	    System.out.println(item.getName() + " added to the menu.");
+	    System.out.println(item.getItemName() + " added to the menu.");
 	    return;
 	}
 	
@@ -117,7 +98,7 @@ public class MenuList implements Iterable<Item> {
 	public Item getMenuItem(String menuItem) {
 		Item mir = new Item("", "", "", 0, 0);
 		for (Item mi : menuList) {
-        	if (String.format("%-16s", mi.getName()).equals(menuItem.substring(0, 16)))
+        	if (String.format("%-16s", mi.getItemName()).equals(menuItem.substring(0, 16)))
         		mir = mi;
         }
 		return (mir);
@@ -125,9 +106,9 @@ public class MenuList implements Iterable<Item> {
 	
 	//return a String corresponding to the menu item, used as part of the table presented in the GUI
 	public String getMenuItemLine(Item menuItem) {
-		if (menuItem.getDescription().length() <= 25)
-			return (String.format("%-16s", menuItem.getName()) + "  " + String.format("%-25s", menuItem.getDescription()) + "  " + String.format("%.2f$", menuItem.getPrice()));
+		if (menuItem.getItemDescription().length() <= 25)
+			return (String.format("%-16s", menuItem.getItemName()) + "  " + String.format("%-25s", menuItem.getItemDescription()) + "  " + String.format("%.2f$", menuItem.getItemPrice()));
 		else
-			return (String.format("%-16s", menuItem.getName()) + "  " + menuItem.getDescription().substring(0,22) + "...  " + String.format("%.2f$", menuItem.getPrice()));
+			return (String.format("%-16s", menuItem.getItemName()) + "  " + menuItem.getItemDescription().substring(0,22) + "...  " + String.format("%.2f$", menuItem.getItemPrice()));
     }
 }

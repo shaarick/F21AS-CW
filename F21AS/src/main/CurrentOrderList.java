@@ -1,4 +1,4 @@
-package main;
+package main1;
 import java.text.DecimalFormat;
 import java.util.*;
 import javax.swing.DefaultListModel; 
@@ -34,12 +34,12 @@ public class CurrentOrderList {
 		for (Item coi : currentOrderList) {
         	if (mi.hashCode() == coi.hashCode()) {
         		coi.addOne();
-        		System.out.println(coi.getName() + " already present in the order: +1 added to quantity.");
+        		System.out.println(coi.getItemName() + " already present in the order: +1 added to quantity.");
         		return;
         	}
         }
         currentOrderList.add(mi);
-        System.out.println(mi.getName() + " added to the order.");
+        System.out.println(mi.getItemName() + " added to the order.");
         return;
 	}
 	
@@ -48,7 +48,7 @@ public class CurrentOrderList {
 		for (Item coi : currentOrderList) {
         	if (coiIn.hashCode() == coi.hashCode()) {
         		coi.addOne();
-        		System.out.println(coi.getName() + ": +1 added to quantity.");
+        		System.out.println(coi.getItemName() + ": +1 added to quantity.");
         		return;
         	}
         }
@@ -59,13 +59,13 @@ public class CurrentOrderList {
 	public void substractOne(Item coiIn) {
 		for (Item coi : currentOrderList) {
         	if (coiIn.hashCode() == coi.hashCode()) {
-        		if (coi.getQuantity() == 1) {
+        		if (coi.getItemQuantity() == 1) {
         			currentOrderList.remove(coi);
-        			System.out.println(coi.getName() + " deleted from the order.");
+        			System.out.println(coi.getItemName() + " deleted from the order.");
         		}
         		else {
-        			coi.subtractOne();
-        			System.out.println(coi.getName() + ": -1 removed from quantity");
+        			coi.substractOne();
+        			System.out.println(coi.getItemName() + ": -1 removed from quantity");
         		}
         		
         		return;
@@ -79,8 +79,8 @@ public class CurrentOrderList {
 		for (Item coi : currentOrderList) {
         	if (coiIn.hashCode() == coi.hashCode()) {
         		currentOrderList.remove(coi);
-        		coi.setQuantity(1);
-        		System.out.println(coi.getName() + " deleted from the order.");
+        		coi.setItemQuantity(1);
+        		System.out.println(coi.getItemName() + " deleted from the order.");
         		return;
         	}
         }
@@ -96,7 +96,7 @@ public class CurrentOrderList {
 	public double calculateTotal() {
 		double total = 0;
 		for (Item coi : currentOrderList) {
-			total += coi.getPriceTotal();
+			total += coi.getItemPriceTotal();
 		}
 		total = calculateDiscounts(total);
 		return total;
@@ -110,22 +110,22 @@ public class CurrentOrderList {
 		int nbTotalArticles = 0;
 
 		for (Item coi : currentOrderList) {
-			if (coi.getItemID().substring(0, 4).equals("BEVE") && coi.getQuantity() > 2) {
-				beverageDiscount += (coi.getQuantity() / 3) * coi.getPrice();
+			if (coi.getItemID().substring(0, 4).equals("BEVE") && coi.getItemQuantity() > 2) {
+				beverageDiscount += (coi.getItemQuantity() / 3) * coi.getItemPrice();
 			}
 			if (coi.getItemID().substring(0, 4).equals("MERC")) {
-				nbMerchArticles += coi.getQuantity();
-				merchDiscount = coi.getPrice();
+				nbMerchArticles += coi.getItemQuantity();
+				merchDiscount = coi.getItemPrice();
 			}
-			nbTotalArticles += coi.getQuantity();
+			nbTotalArticles += coi.getItemQuantity();
 		}
 
 		//only if the number of merchandise items exceeds 3, we look for the cheapest
 		//in order to reduce computation time if there is less than 3 merchandise items
 		if (nbMerchArticles >= 3) {
 			for (Item coi : currentOrderList) {
-				if (coi.getItemID().substring(0, 4).equals("MERC") && coi.getPrice() < merchDiscount)
-					merchDiscount = coi.getPrice();
+				if (coi.getItemID().substring(0, 4).equals("MERC") && coi.getItemPrice() < merchDiscount)
+					merchDiscount = coi.getItemPrice();
 			}
 			
 		}
@@ -174,7 +174,7 @@ public class CurrentOrderList {
 	public Item getCurrentOrderItem(String currentOrderItem) {
 		Item coi = new Item("", "", "", 0, 0);
 		for (Item co : currentOrderList) {
-        	if (String.format("%-16s", co.getName()).equals(currentOrderItem.substring(0, 16)))
+        	if (String.format("%-16s", co.getItemName()).equals(currentOrderItem.substring(0, 16)))
         		coi = co;
         }
 		return (coi);
@@ -182,7 +182,7 @@ public class CurrentOrderList {
 	
 	//return a String corresponding to the item ordered, used as part of the table presented in the GUI
     public String getCurrentOrderItemLine(Item currentOrderItem) {
-        return (String.format("%-16s", currentOrderItem.getName()) + "      " + new DecimalFormat("00.00").format(currentOrderItem.getPrice()) + "$      " + String.format("%d", currentOrderItem.getQuantity()) + "      " + new DecimalFormat("00.00").format(currentOrderItem.getPriceTotal()) + "$");
+        return (String.format("%-16s", currentOrderItem.getItemName()) + "      " + new DecimalFormat("00.00").format(currentOrderItem.getItemPrice()) + "$      " + String.format("%d", currentOrderItem.getItemQuantity()) + "      " + new DecimalFormat("00.00").format(currentOrderItem.getItemPriceTotal()) + "$");
     }
     
     //return a String corresponding to the discounts being currently applied on the order
