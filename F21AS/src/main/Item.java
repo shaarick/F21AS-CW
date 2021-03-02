@@ -1,8 +1,6 @@
 package main;
 
-/*
- * 
- */
+
 public class Item {
 	//Fields
 	private String itemID;
