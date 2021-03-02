@@ -47,7 +47,7 @@ class MenuListJUnitTests {
 		
 		Item mi2 = new Item("FOOD365", "Croissant", "French Nature Pastry.", 1, 3.5);
 		ml.addToList(mi2);
-		assertEquals("Croissant", (ml.getMenuItem(String.format("%-16s", "Croissant"))).getItemName(), "Setting a non null Item name should work.");
+		assertEquals("Croissant", (ml.getMenuItem(String.format("%-16s", "Croissant"))).getName(), "Setting a non null Item name should work.");
     }
 
 	@Test
@@ -61,7 +61,7 @@ class MenuListJUnitTests {
 		
 		Item mi2 = new Item("FOOD365", "Croissant", "French Nature Pastry.", 1, 3.5);
 		ml.addToList(mi2);
-		assertEquals(3.5, (ml.getMenuItem(String.format("%-16s", "Croissant"))).getItemPrice(), "Setting a correctly formated price should work.");
+		assertEquals(3.5, (ml.getMenuItem(String.format("%-16s", "Croissant"))).getPrice(), "Setting a correctly formated price should work.");
     }
 
 	@Test
@@ -81,10 +81,10 @@ class MenuListJUnitTests {
         menuList.addToList(mi2);
         menuList.addToList(mi3);
 
-		assertEquals(menuItemToLookForTopList, menuList.getMenuItem(String.format("%-16s", menuItemToLookForTopList)).getItemName(), "Looking for an item at the menu's top should work.");
-		assertEquals(menuItemToLookForMiddleList, menuList.getMenuItem(String.format("%-16s", menuItemToLookForMiddleList)).getItemName(), "Looking for an item at the menu's middle should work.");
-		assertEquals(menuItemToLookForBottomList, menuList.getMenuItem(String.format("%-16s", menuItemToLookForBottomList)).getItemName(), "Looking for an item at the menu's bottom should work.");
-		assertEquals("", menuList.getMenuItem(String.format("%-16s", menuItemToLookForDoesntExist)).getItemName(), "Looking for an item that doesn't exist should work.");
+		assertEquals(menuItemToLookForTopList, menuList.getMenuItem(String.format("%-16s", menuItemToLookForTopList)).getName(), "Looking for an item at the menu's top should work.");
+		assertEquals(menuItemToLookForMiddleList, menuList.getMenuItem(String.format("%-16s", menuItemToLookForMiddleList)).getName(), "Looking for an item at the menu's middle should work.");
+		assertEquals(menuItemToLookForBottomList, menuList.getMenuItem(String.format("%-16s", menuItemToLookForBottomList)).getName(), "Looking for an item at the menu's bottom should work.");
+		assertEquals("", menuList.getMenuItem(String.format("%-16s", menuItemToLookForDoesntExist)).getName(), "Looking for an item that doesn't exist should work.");
     }
 
 }

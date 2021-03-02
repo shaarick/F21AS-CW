@@ -158,7 +158,7 @@ public class CoffeeShopIO {
                         // Get item as a string from Order file
                         String stringItem = line.substring(indexOfItem + 1).trim();
                         // If the item in the orders object matches the menu item, increase count:
-                        if (item.getItemName() == stringItem) {
+                        if (item.getName() == stringItem) {
                             itemCount++;
                         }
                     }
@@ -169,8 +169,8 @@ public class CoffeeShopIO {
                  * in the orders ArrayList. We now have the number of times each item was
                  * ordered. To write a line in the file, we need item name, quantity and revenue
                  */
-                String itemName = item.getItemName();
-                Double itemRevenue = itemCount * item.getItemPrice();
+                String itemName = item.getName();
+                Double itemRevenue = itemCount * item.getPrice();
 
                 // This string will contain relevant all item details
                 String itemLine = itemName + "\t" + itemCount + "\t" + itemRevenue + "\n";

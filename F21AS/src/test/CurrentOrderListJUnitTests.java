@@ -84,13 +84,13 @@ class CurrentOrderListJUnitTests {
 		currentOrderList.addToList(mi2);
 		currentOrderList.addToList(mi3);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() + mi3.getItemPriceTotal())).substring(0,3),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() + mi3.getPriceTotal())).substring(0,3),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,3),
 				"Calculating the discount with 2 identical beverages shouldn't change the total amount.");
 		
 		currentOrderList.addToList(mi2);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() - mi2.getItemPrice() + mi3.getItemPriceTotal())).substring(0,3),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() - mi2.getPrice() + mi3.getPriceTotal())).substring(0,3),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,3),
 				"Calculating the discount with 3 identical beverages should substract the price of one to the total.");
 		
@@ -99,7 +99,7 @@ class CurrentOrderListJUnitTests {
 		currentOrderList.addToList(mi2);
 		currentOrderList.addToList(mi2);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() - 2 * mi2.getItemPrice()  + mi3.getItemPriceTotal())).substring(0,3),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() - 2 * mi2.getPrice()  + mi3.getPriceTotal())).substring(0,3),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,3),
 				"Calculating the discount with 7 identical beverages should substract the price of two to the total.");
 		}
@@ -119,25 +119,25 @@ class CurrentOrderListJUnitTests {
 		currentOrderList.addToList(mi3);
 		currentOrderList.addToList(mi4);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() + mi3.getItemPriceTotal() + mi4.getItemPriceTotal())).substring(0,5),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() + mi3.getPriceTotal() + mi4.getPriceTotal())).substring(0,5),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,5),
 				"Calculating the discount with 2 merchandise items shouldn't change the total amount.");
 		
 		currentOrderList.addToList(mi5);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() + mi3.getItemPriceTotal() + mi4.getItemPriceTotal() + mi5.getItemPriceTotal() - mi5.getItemPrice())).substring(0,5),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() + mi3.getPriceTotal() + mi4.getPriceTotal() + mi5.getPriceTotal() - mi5.getPrice())).substring(0,5),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,5),
 				"Calculating the discount with 3 merchandise items should substract the price of the cheapest of them to the total.");
 		
 		currentOrderList.addToList(mi3);
-		assertEquals(String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() + mi3.getItemPriceTotal() + mi4.getItemPriceTotal() + mi5.getItemPriceTotal() - mi5.getItemPrice())).substring(0,5),
+		assertEquals(String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() + mi3.getPriceTotal() + mi4.getPriceTotal() + mi5.getPriceTotal() - mi5.getPrice())).substring(0,5),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,5),
 				"Calculating the discount with 4 merchandise items should still substract the price of the cheapest of them to the total.");
 		
 		currentOrderList.addToList(mi5);
 		currentOrderList.addToList(mi5);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() + mi3.getItemPriceTotal() + mi4.getItemPriceTotal() + mi5.getItemPriceTotal() - mi5.getItemPrice())).substring(0,5),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() + mi3.getPriceTotal() + mi4.getPriceTotal() + mi5.getPriceTotal() - mi5.getPrice())).substring(0,5),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,5),
 				"Calculating the discount with 5 merchandise items, of which 3 are identical and the cheapest, should still substract the price of one cheapest to the total.");
 	}
@@ -156,7 +156,7 @@ class CurrentOrderListJUnitTests {
 		currentOrderList.addToList(mi2);
 		currentOrderList.addToList(mi3);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() + mi3.getItemPriceTotal())).substring(0,5),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() + mi3.getPriceTotal())).substring(0,5),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,5),
 				"Calculating the discount with 5 items in total shouldn't change the total amount.");
 		
@@ -166,14 +166,14 @@ class CurrentOrderListJUnitTests {
 		currentOrderList.addToList(mi);
 		currentOrderList.addToList(mi);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() + mi3.getItemPriceTotal()) * 0.9).substring(0,5),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() + mi3.getPriceTotal()) * 0.9).substring(0,5),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,5),
 				"Calculating the discount with 10 items in total should reduce the total amount by 10%.");
 		
 		currentOrderList.addToList(mi2);
 		currentOrderList.addToList(mi3);
 		assertEquals(
-				String.format("%s", (mi.getItemPriceTotal() + mi2.getItemPriceTotal() + mi3.getItemPriceTotal()) * 0.9).substring(0,5),
+				String.format("%s", (mi.getPriceTotal() + mi2.getPriceTotal() + mi3.getPriceTotal()) * 0.9).substring(0,5),
 				String.format("%s", currentOrderList.calculateTotal()).substring(0,5),
 				"Calculating the discount with 12 items in total should still reduce the total amount by 10%.");
 	}

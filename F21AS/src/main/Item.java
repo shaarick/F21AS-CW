@@ -20,22 +20,22 @@ public class Item {
 		}
 		
 		try {
-			setItemName(name);
+			setName(name);
 		}
 		catch(StringLengthException exception) {
 			System.out.println(exception.getMessage());
 		}
 		
 		try {
-			setItemDescription(description);
+			setDescription(description);
 		}
 		catch(StringLengthException exception) {
 			System.out.println(exception.getMessage());
 		}
 		
-		setItemQuantity(quantity);
+		setQuantity(quantity);
 		
-		setItemPrice(price);
+		setPrice(price);
 	}
 
 	
@@ -46,27 +46,27 @@ public class Item {
 	}
 	
 	//Get name of item
-	public String getItemName() {
+	public String getName() {
 		return name;
 	}
 	
 	//Get description of item
-	public String getItemDescription() {
+	public String getDescription() {
 		return description;
 	}
 	
 	//Get quantity of item
-	public int getItemQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 	
 	//Get price of item
-	public double getItemPrice() {
+	public double getPrice() {
 		return price;
 	}
 	
 	//Get total price of item
-	public double getItemPriceTotal() {
+	public double getPriceTotal() {
 		return priceTotal;
 	}
 	
@@ -84,7 +84,7 @@ public class Item {
 	}
 	
 	//Set name of item with limit of 16 characters
-	public void setItemName(String name) throws StringLengthException {
+	public void setName(String name) throws StringLengthException {
 		int maxSize = 16;
 		if(name.length() <= maxSize) {
 			this.name = name;
@@ -95,7 +95,7 @@ public class Item {
 	}
 	
 	//Set description of item with limit of 25 characters
-	public void setItemDescription(String description) throws StringLengthException {
+	public void setDescription(String description) throws StringLengthException {
 		int maxSize = 25;
 		if(description.length() <= maxSize) {
 			this.description = description;
@@ -106,29 +106,29 @@ public class Item {
 	}
 	
 	//Set quantity of item as absolute value
-	public void setItemQuantity(int quantity) {
+	public void setQuantity(int quantity) {
 		if(quantity>=0) {
 			this.quantity = quantity;
 		}
 		else {
 			this.quantity = -quantity;
 		}
-		setItemPriceTotal();
+		setPriceTotal();
 	}
 	
 	//Set price of item as absolute value
-	public void setItemPrice(double price) {
+	public void setPrice(double price) {
 		if(price>=0) {
 			this.price = price;
 		}
 		else {
 			this.price = -price;
 		}
-		setItemPriceTotal();
+		setPriceTotal();
 	}
 	
 	//Set price total of item as product of price and quantity of item
-	private void setItemPriceTotal() {
+	private void setPriceTotal() {
 		priceTotal = price*quantity;
 	}
 	
@@ -137,13 +137,13 @@ public class Item {
 	//Increment quantity and total price of item
 	public void addOne() {
 		quantity++;
-		setItemPriceTotal();
+		setPriceTotal();
 	}
 	
 	//Decrement quantity and total price of item
 	public void subtractOne() {
 		quantity--;
-		setItemPriceTotal();
+		setPriceTotal();
 	}
 	
 	//Compare one item to another using item IDs
