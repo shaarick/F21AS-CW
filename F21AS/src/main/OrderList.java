@@ -130,5 +130,9 @@ public class OrderList {
 	public float getFinalCost() {
 		return this.cost;
 	}
+	
+	public ArrayList<String> getData(){
+		return this.dataArray;
+	}
 
 }
