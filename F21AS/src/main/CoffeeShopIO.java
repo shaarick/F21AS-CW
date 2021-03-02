@@ -24,7 +24,6 @@ public class CoffeeShopIO {
     private MenuList ml;
     private OrderList orderList;
     private CoffeeShopGUI gui;
-    private String report;
 
     /**
      * Constructor for CoffeeShopIO Class.
@@ -41,6 +40,7 @@ public class CoffeeShopIO {
     }
 
     // Get and Set Methods for the instance variables.
+
     public MenuList getMl() {
         return this.ml;
     }
@@ -63,14 +63,6 @@ public class CoffeeShopIO {
 
     public void setGui(CoffeeShopGUI gui) {
         this.gui = gui;
-    }
-
-    public String getReport() {
-        return this.report;
-    }
-
-    public void setReport(String report) {
-        this.report = report;
     }
 
     /**
@@ -129,6 +121,11 @@ public class CoffeeShopIO {
         }
     }
 
+    /**
+     * Static method used to create final report when GUI is closed.
+     * @param menu All the items available for purchase in the shop.
+     * @param orders All the orders placed within this shop.
+     */
     public static void createReport(MenuList menu, OrderList orders) {
         try {
             // Create a new file. The parameter true allows for appending.
