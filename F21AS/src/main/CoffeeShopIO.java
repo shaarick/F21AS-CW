@@ -107,13 +107,17 @@ public class CoffeeShopIO {
                     Item itemFromLine = new Item(itemID, name, description, quantity, price);
 
                     // Add item to menu list.
-                    ml.addToList(itemFromLine);
-                }
+                    try {
+                    	ml.addToList(itemFromLine);
+                    } catch (IncorrectItemForMenuList error) {
+                    	System.out.println("Incorrect item; not added to MenuList");
+                    }
                 // Counter to skip only the first row.
                 lineToBeSkipped++;
             }
             // Close reader to prevent resource leak.
             reader.close();
+        }
         }
         // Finish try block with catch statement.
         catch (IOException error) {
@@ -141,7 +145,7 @@ public class CoffeeShopIO {
                 int itemCount = 0;
 
                 // Loop over each element of the orders ArrayList
-                for (String line : orders) {
+                for (String line : orders.getData()) {
                     /*
                      * Last line always begins with final, but that line has no Item Objects so we
                      * skip it
@@ -174,7 +178,7 @@ public class CoffeeShopIO {
                 writer.write(itemLine);
             }
             // Write the final line of report
-            String finalLine = "Total Revenue (inc. discounts): " + orders.getCost;
+            String finalLine = "Total Revenue (inc. discounts): " + orders.getFinalCost();
             writer.write(finalLine);
 
             // Close writer to prevent resource leak.
@@ -185,54 +189,4 @@ public class CoffeeShopIO {
         }
     }
 
-    // public void readOrderList() {
-    //     // Loop over each element
-    //     for (String line : orderList) {
-    //         // Last line always begins with final, but that line has no Item Objects so we
-    //         // skip it
-    //         if (line.substring(0, 6) != "Final") {
-    //             // Get index of item name, which appears after the second occurance of ","
-    //             // character
-    //             int indexOfItem = line.indexOf(",", (line.indexOf(",") + 1));
-    //             // Get item as a string from Order file
-    //             String item = line.substring(indexOfItem + 1).trim();
-    //             // Get the item object using the String and updates its quantity by 1.
-    //             ml.getMenuItem(item).addOne();
-    //         }
-    //     }
-
-    // }
-
-
-    // public void createReport() {
-    //     try {
-    //         // Create a new file. The parameter true allows for appending.
-    //         FileWriter writer = new FileWriter("report.txt", true);
-
-    //         // Write first row containing column names to the report.
-    //         String columns = "Menu Item \t Number of times item ordered \t Income from Item";
-    //         writer.write(columns);
-
-    //         // Loop over each item
-    //         for (Item i : ml) {
-    //             // Get item details for the report
-    //             String itemName = i.getItemName();
-    //             int itemCount = i.getItemQuantity();
-    //             Double revenue = i.getItemPriceTotal();
-
-    //             // Write item details to file
-    //             String itemLine = itemName + "\t" + itemCount + "\t" + revenue + "\n";
-    //             writer.write(itemLine);
-    //         }
-    //         // Write the total income for the coffee shop in the last line
-    //         String lastLine = "Total income from all orders(incl. discounts): " + orderList.getCost;
-    //         writer.write(lastLine);
-    //         writer.close();
-    //     }
-    //     // Finish try block with catch statement.
-    //     catch (IOException error) {
-    //         System.out.println("An error occured.");
-    //         error.printStackTrace();
-    //     }
-    // }
 }
