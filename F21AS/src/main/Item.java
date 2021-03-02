@@ -1,6 +1,8 @@
-package main1;
+package main;
+
 
 public class Item {
+	//Fields
 	private String itemID;
 	private String name;
 	private String description;
@@ -9,51 +11,87 @@ public class Item {
 	private double priceTotal;
 	
 	
+	//Constructor
 	public Item(String itemID, String name, String description, int quantity, double price) {
 		try {
 			setItemID(itemID);
-			setItemName(name);
-			setItemDescription(description);
-			setItemQuantity(quantity);
-			setItemPrice(price);
 		}
 		catch(StringLengthException exception) {
 			System.out.println(exception.getMessage());
+			try {
+				setItemID(itemID.substring(0,7));
+			} catch (StringLengthException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
+		try {
+			setName(name);
+		}
+		catch(StringLengthException exception) {
+			System.out.println(exception.getMessage());
+			try {
+				setName(name.substring(0,16));
+			} catch (StringLengthException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		try {
+			setDescription(description);
+		}
+		catch(StringLengthException exception) {
+			System.out.println(exception.getMessage());
+			try {
+				setDescription(description.substring(0,25));
+			} catch (StringLengthException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		setQuantity(quantity);
+		
+		setPrice(price);
 	}
 
-
+	
+	//Get methods
+	//Get ID of item
 	public String getItemID() {
 		return itemID;
 	}
-
-
+	
+	//Get name of item
 	public String getName() {
 		return name;
 	}
 	
-	
-	public String getItemDescription() {
+	//Get description of item
+	public String getDescription() {
 		return description;
 	}
-
-
-	public int getItemQuantity() {
+	
+	//Get quantity of item
+	public int getQuantity() {
 		return quantity;
 	}
-
-
-	public double getItemPrice() {
+	
+	//Get price of item
+	public double getPrice() {
 		return price;
 	}
-
-
-	public double getItemPriceTotal() {
+	
+	//Get total price of item
+	public double getPriceTotal() {
 		return priceTotal;
 	}
 	
 	
-	
+	//Set methods
+	//Set ID of item with limit of 7 characters
 	public void setItemID(String itemID) throws StringLengthException {
 		int maxSize = 7;
 		if(itemID.length() <= maxSize) {
@@ -63,9 +101,9 @@ public class Item {
 			throw new StringLengthException("ID",maxSize);
 		}
 	}
-
-
-	public void setItemName(String name) throws StringLengthException {
+	
+	//Set name of item with limit of 16 characters
+	public void setName(String name) throws StringLengthException {
 		int maxSize = 16;
 		if(name.length() <= maxSize) {
 			this.name = name;
@@ -75,8 +113,8 @@ public class Item {
 		}
 	}
 	
-	
-	public void setItemDescription(String description) throws StringLengthException {
+	//Set description of item with limit of 25 characters
+	public void setDescription(String description) throws StringLengthException {
 		int maxSize = 25;
 		if(description.length() <= maxSize) {
 			this.description = description;
@@ -85,59 +123,59 @@ public class Item {
 			throw new StringLengthException("Description",maxSize);
 		}
 	}
-
-
-	public void setItemQuantity(int quantity) {
+	
+	//Set quantity of item as absolute value
+	public void setQuantity(int quantity) {
 		if(quantity>=0) {
 			this.quantity = quantity;
 		}
 		else {
 			this.quantity = -quantity;
 		}
-		setItemPriceTotal();
+		setPriceTotal();
 	}
-
-
-	public void setItemPrice(double price) {
+	
+	//Set price of item as absolute value
+	public void setPrice(double price) {
 		if(price>=0) {
 			this.price = price;
 		}
 		else {
 			this.price = -price;
 		}
-		setItemPriceTotal();
+		setPriceTotal();
 	}
-
-
-	public void setItemPriceTotal() {
+	
+	//Set price total of item as product of price and quantity of item
+	private void setPriceTotal() {
 		priceTotal = price*quantity;
 	}
 	
 	
-	
-
+	//Other methods
+	//Increment quantity and total price of item
 	public void addOne() {
 		quantity++;
-		priceTotal+=price;
+		setPriceTotal();
 	}
-
-
-	public void substractOne() {
+	
+	//Decrement quantity and total price of item
+	public void subtractOne() {
 		quantity--;
-		priceTotal-=price;
+		setPriceTotal();
 	}
 	
-	
+	//Compare one item to another using item IDs
 	public int compareTo(Item item) {
 		return this.itemID.compareTo(item.getItemID());
 	}
 	
-	
+	//Check if two items are equal using item IDs
 	public boolean equals(Item item) {
 		return this.itemID.equals(item.getItemID());
 	}
 	
-	
+	//Find hash code of item using item ID
 	public int hashCode() {
 		return this.itemID.hashCode();
 	}

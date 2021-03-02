@@ -1,4 +1,4 @@
-package main1;
+package main;
 
 public class StringLengthException extends Exception {
 	public StringLengthException(String field, int length) {

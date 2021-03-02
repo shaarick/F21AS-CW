@@ -1,4 +1,4 @@
-package main1;
+package main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -50,7 +50,7 @@ public class Customer {
 
 		setTimeStamp();
 
-		int value = getIDFromFile();
+		int value = getIDFromFile()+1;
 
 		setUndefinedName(value);
 
@@ -126,14 +126,15 @@ public class Customer {
 	private void setUndefinedName(int value) {
 		if(value>=100) {
 			this.Name = "undefinedName"+value;
+		}	
+		else if(value<10) {
+			this.Name = "undefinedName00"+value;
 		}
 
 		else if (value<100) {
 			this.Name = "undefinedName0"+value;
 		}
-		else if(value<10) {
-			this.Name = "undefinedName00"+value;
-		}
+	
 	}
 	/**
 	 * Sets the timestamp for the customer initialization

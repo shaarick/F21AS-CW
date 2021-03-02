@@ -29,39 +29,32 @@ public class OrderList {
 	private ArrayList<String> dataArray; //stores all of the orderlist.txt
 	private float cost; //stores the final updated cost
 
-	public OrderList() {
+	public OrderList() throws IOException {
 		dataArray = new ArrayList<String>();
 		dataArray = ReadFile();
 	}
 	
 	
 	
-	private ArrayList<String> ReadFile() {
+	private ArrayList<String> ReadFile() throws IOException {
 		
 		Scanner myReader;
-		ArrayList<String> dataarray = new ArrayList<String>();
-		
-		try {
 			myReader = new Scanner(p);
 			String data;
 			data = myReader.nextLine();
-			dataarray.add(data);
+			dataArray.add(data);
 
 			while (myReader.hasNext()) { //loop through the txt file
 				data = myReader.nextLine();
-				dataarray.add(data);
+				dataArray.add(data);
 			}
 			myReader.close();
 
 			//get the final cost:
 			String finalCost = dataArray.get(dataArray.size()-1);
+			System.out.println(finalCost);
 			this.cost = Float.parseFloat(finalCost.substring(12,finalCost.length()));
-			
-		}catch(IOException e) {
-			System.err.println("CANT FIND FILE");
-			e.printStackTrace();
-		}
-		return dataarray;
+		return dataArray;
 	}
 
 
@@ -91,12 +84,15 @@ public class OrderList {
 			for (Item items : col.getCurrentOrderList()) {
 
 				appendToOrderList(c.GetName(),c.getTimeStamp(),items);
+				
 			}
 			
 			
 			//add the final cost back into the array
 			
 			dataArray.add("Final cost:"+" "+this.cost);
+			
+			System.out.println("FinalUpdatedCost = "+ this.cost);
 			
 			try(FileWriter fw = new FileWriter(p.toString(), false); //FALSE MEANS RE WRITE
 					BufferedWriter bw = new BufferedWriter(fw);
@@ -105,7 +101,7 @@ public class OrderList {
 				for (int i = 0; i < dataArray.size()-1; i++) {
 					out.println(dataArray.get(i));	
 				}
-				
+				out.println("Final cost: "+ this.cost);
 			} catch (IOException e) {
 				System.err.println("CANT WRITE TO FILE, DOESNT EXIST");
 				e.printStackTrace();
@@ -121,9 +117,14 @@ public class OrderList {
 	 * @return
 	 */
 	private String appendToOrderList(String getName, String timeStamp, Item items1){
-
-		String ORDER = getName + "," +" "+ timeStamp +"," +" "+ items1.getName();
-		dataArray.add(ORDER);
+		
+		String ORDER = null;
+		
+		for (int i = 0; i < items1.getQuantity(); i++) {
+			ORDER = getName + "," +" "+ timeStamp +"," +" "+ items1.getName();
+			dataArray.add(ORDER);
+		} 
+		
 		return ORDER;
 	}
 	

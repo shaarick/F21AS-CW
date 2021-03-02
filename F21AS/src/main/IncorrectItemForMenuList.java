@@ -1,4 +1,4 @@
-package main1;
+package main;
 
 public class IncorrectItemForMenuList extends Exception{
 	public IncorrectItemForMenuList(String errorMessage) {

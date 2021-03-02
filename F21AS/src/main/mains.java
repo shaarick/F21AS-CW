@@ -1,11 +1,21 @@
-package main1;
+package main;
+
+import java.io.IOException;
 
 public class mains {
 		
 	public static void main(String[] args) {
-		OrderList OL = new OrderList();
-		CoffeeShopIO CoffeeShop = new CoffeeShopIO("product.csv", OL);
+		OrderList OL;
+		try {
+			OL = new OrderList();
+			CoffeeShopIO CoffeeShop = new CoffeeShopIO("src/main/product.csv", OL);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+}
 	
 //		Path p = Paths.get("OrderList.txt").toAbsolutePath();
 //		p.toFile();
@@ -33,4 +43,3 @@ public class mains {
 //		System.out.println(value);
 //	
 //	}
-}
