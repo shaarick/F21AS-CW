@@ -1,6 +1,8 @@
 package main;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -305,7 +307,7 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			promoText.setText(col.getDiscountsLine());
 		}
 		if (e.getSource() == close) {
-			CoffeeShopIO.createReport(MenuList, OrderList);
+			CoffeeShopIO.createReport(ml, ordersList);
 			System.exit(0);
 		}
 	}
