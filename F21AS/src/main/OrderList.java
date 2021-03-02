@@ -1,4 +1,4 @@
-package main1;
+package main;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -122,7 +122,7 @@ public class OrderList {
 	 */
 	private String appendToOrderList(String getName, String timeStamp, Item items1){
 
-		String ORDER = getName + "," +" "+ timeStamp +"," +" "+ items1.getItemName();
+		String ORDER = getName + "," +" "+ timeStamp +"," +" "+ items1.getName();
 		dataArray.add(ORDER);
 		return ORDER;
 	}
