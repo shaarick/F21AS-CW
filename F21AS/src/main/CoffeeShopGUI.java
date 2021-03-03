@@ -54,14 +54,12 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 		createMiddle();
 		createBottom();
 		
-//		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-		
 		addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                CoffeeShopIO.createReport(ml,ordersList);
-                System.exit(0);
-            }
-        });
+            		public void windowClosing(WindowEvent e) {
+                		CoffeeShopIO.createReport(ml,ordersList);
+                		System.exit(0);
+            		}
+        	});
 		
 		pack();
 		//centers the GUI in the middle of the screen
