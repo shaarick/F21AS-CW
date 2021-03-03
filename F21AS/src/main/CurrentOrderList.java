@@ -89,6 +89,8 @@ public class CurrentOrderList {
 	
 	//remove all items from the set
 	public void removeAllItems() {
+		for (Item coi : currentOrderList)
+			coi.setQuantity(1);
 		currentOrderList.clear();
 	}
 	
