@@ -8,7 +8,7 @@ public class mains {
 		OrderList OL;
 		try {
 			OL = new OrderList();
-			CoffeeShopIO CoffeeShop = new CoffeeShopIO("src/main/product.csv", OL);
+			CoffeeShopIO CoffeeShop = new CoffeeShopIO("F21AS/src/main/product.csv", OL);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

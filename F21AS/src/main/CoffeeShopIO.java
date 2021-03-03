@@ -46,7 +46,7 @@ public class CoffeeShopIO {
         return this.ml;
     }
 
-    public void setMl(MenuList ml) {
+    private void setMl(MenuList ml) {
         this.ml = ml;
     }
 
@@ -54,7 +54,7 @@ public class CoffeeShopIO {
         return this.orderList;
     }
 
-    public void setOrderList(OrderList orderList) {
+    private void setOrderList(OrderList orderList) {
         this.orderList = orderList;
     }
 
@@ -62,7 +62,7 @@ public class CoffeeShopIO {
         return this.gui;
     }
 
-    public void setGui(CoffeeShopGUI gui) {
+    private void setGui(CoffeeShopGUI gui) {
         this.gui = gui;
     }
 
@@ -71,7 +71,7 @@ public class CoffeeShopIO {
      * 
      * @param filename Name of the menu file.
      */
-    public void readMenuFile(String filename) {
+    private void readMenuFile(String filename) {
         try {
             // Create a reader to read csv file.
             BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -113,7 +113,7 @@ public class CoffeeShopIO {
                     try {
                     	ml.addToList(itemFromLine);
                     } catch (IncorrectItemForMenuList error) {
-                    	System.out.println("Incorrect item; not added to MenuList");
+                    	System.out.print(error);
                     }
                 // Counter to skip only the first row.
                
@@ -139,10 +139,10 @@ public class CoffeeShopIO {
     public static void createReport(MenuList menu, OrderList orders) {
         try {
             // Create a new file. The parameter true allows for appending.
-            FileWriter writer = new FileWriter("report.txt", false);
+            FileWriter writer = new FileWriter("report.csv", false);
 
             // Write first row containing column names to the report.
-            String columnName = "Menu Item \t Number of times item ordered \t Income from Item \n";
+            String columnName = "Menu Item,Number of times item ordered,Income from Item \n";
             
             writer.write(columnName);
 
@@ -181,11 +181,11 @@ public class CoffeeShopIO {
                 Double itemRevenue = itemCount * item.getPrice();
 
                 // This string will contain relevant all item details
-                String itemLine = itemName + "\t" + "\t" + itemCount + "\t" + "\t"+ itemRevenue + "\n";
+                String itemLine = itemName + "," + itemCount + ","+ itemRevenue + "\n";
                 writer.write(itemLine);
             }
             // Write the final line of report
-            String finalLine = "Total Revenue (inc. discounts): " + orders.getFinalCost();
+            String finalLine = "Total Revenue (inc. discounts):, " + orders.getFinalCost();
             writer.write(finalLine);
 
             // Close writer to prevent resource leak.
