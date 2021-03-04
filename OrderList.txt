@@ -31,4 +31,8 @@ undefinedName014, 2021-03-04 09:35:27.495, Civet Cat
 undefinedName015, 2021-03-04 10:24:59.2, Civet Cat
 undefinedName015, 2021-03-04 10:24:59.2, Civet Cat
 undefinedName015, 2021-03-04 10:24:59.2, Civet Cat
-Final cost: 653.2
+undefinedName016, 2021-03-04 14:03:56.501, 3 MapleS Pancake
+undefinedName016, 2021-03-04 14:03:56.501, 3 MapleS Pancake
+undefinedName017, 2021-03-04 14:04:02.546, Paris Brest
+undefinedName017, 2021-03-04 14:04:02.546, Paris Brest
+Final cost: 665.2
