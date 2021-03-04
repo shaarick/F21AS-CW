@@ -36,7 +36,6 @@ public class Item {
 			try {
 				setItemID(itemID.substring(0,7));
 			} catch (StringLengthException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -50,7 +49,6 @@ public class Item {
 			try {
 				setName(name.substring(0,16));
 			} catch (StringLengthException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -64,7 +62,6 @@ public class Item {
 			try {
 				setDescription(description.substring(0,25));
 			} catch (StringLengthException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

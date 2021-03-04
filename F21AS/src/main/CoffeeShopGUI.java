@@ -306,7 +306,6 @@ public class CoffeeShopGUI extends JFrame implements ActionListener {
 			try {
 				c.generatenewcustomer();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			col.removeAllItems();
